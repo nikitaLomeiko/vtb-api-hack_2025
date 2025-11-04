@@ -1,9 +1,12 @@
 import '@styles/index.css'
 import { Routing } from '@routes/'
+import { Layout } from '@components/layout'
 
 function App() {
   return (
-      <Routing/>
+      <Layout>
+        <Routing/>
+      </Layout>
   )
 }
 
