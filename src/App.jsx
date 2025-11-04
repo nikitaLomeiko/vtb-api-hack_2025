@@ -1,8 +1,9 @@
 import '@styles/index.css'
+import { Routing } from '@routes/'
 
 function App() {
   return (
-    <div className='bg-red-500'>test</div>
+      <Routing/>
   )
 }
 

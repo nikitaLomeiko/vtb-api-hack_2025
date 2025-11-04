@@ -39,6 +39,7 @@ export default defineConfig({
       "@hooks": new URL("./src/hooks", import.meta.url).pathname,
       "@pages": new URL("./src/pages", import.meta.url).pathname,
       "@assets": new URL("./src/assets", import.meta.url).pathname,
+      "@routes": new URL("./src/routes", import.meta.url).pathname,
     },
   },
 });
