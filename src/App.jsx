@@ -1,10 +1,10 @@
 import '@styles/index.css'
-import { Routing } from '@routes/'
+import { Routing } from '@routes'
 import { Layout } from '@components/layout'
 import { AuthProvider } from '@components/providers/auth.provider';
 import { SoundProvider } from '@components/providers/sound.provider';
 import audio from './assets/audio/run.ogg'
-import stone from './assets/audio/stone.mp3'
+// import stone from './assets/audio/stone.mp3'
 
 function App() {
 

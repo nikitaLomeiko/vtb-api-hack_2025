@@ -1,6 +1,7 @@
 import { BalanceSummaryCard } from "@components/widgets/balance.summary.card";
 import { BanksList } from "@components/widgets/bank.list";
 import { DenominationList } from "@components/widgets/denomination.list";
+import SlotMachine from "./slot";
 
 export const HomePage = () => {
 
@@ -9,6 +10,7 @@ export const HomePage = () => {
       <BalanceSummaryCard/>
       <DenominationList/>
       <BanksList/>
+      <SlotMachine/>
     </div>    
   );
 };

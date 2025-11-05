@@ -6,10 +6,13 @@ import {
   ChartBarIcon,
   Cog6ToothIcon
 } from '@heroicons/react/24/outline';
+import { useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
   const [isMobile, setIsMobile] = React.useState(false);
   const [activeSection, setActiveSection] = React.useState('главная');
+
+  const navigate = useNavigate()
 
   // Определяем мобильное устройство
   React.useEffect(() => {
@@ -24,17 +27,17 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { id: 'главная', label: 'Главная', icon: HomeIcon },
-    { id: 'переводы', label: 'Переводы', icon: ArrowsRightLeftIcon },
-    { id: 'карты', label: 'Карты', icon: CreditCardIcon },
-    { id: 'аналитика', label: 'Аналитика', icon: ChartBarIcon },
-    { id: 'еще', label: 'Еще', icon: Cog6ToothIcon }
+    { id: 'главная', label: 'Главная', path: '/', icon: HomeIcon },
+    { id: 'Транзакции', label: 'Транзакции', path: '/transactions', icon: ArrowsRightLeftIcon },
+    { id: 'карты', label: 'Карты', path: '/', icon: CreditCardIcon },
+    { id: 'аналитика', label: 'Аналитика', path: '/', icon: ChartBarIcon },
+    { id: 'еще', label: 'Еще', path: '/', icon: Cog6ToothIcon }
   ];
 
   const handleNavClick = (itemId) => {
     setActiveSection(itemId);
     console.log(`Переход на: ${itemId}`);
-    // Здесь будет логика навигации
+    navigate(navItems.find(item => item.id === itemId).path || '/')
   };
 
   // Десктопная версия - горизонтальное меню в хедере

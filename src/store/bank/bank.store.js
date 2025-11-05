@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export const useBank = create((set) => ({
+export const useBank = create((set, get) => ({
   bank: {
     total: 267233,
     bankList: [
@@ -71,5 +71,29 @@ export const useBank = create((set) => ({
       },
     ],
   },
-  setBank: (bank) => set(bank),
+
+  // Функция добавления денег к total
+  addMoney: (amount) => {
+    const state = get();
+    set({
+      bank: {
+        ...state.bank,
+        total: state.bank.total + amount,
+      },
+    });
+  },
+
+  // Функция снятия денег с total
+  subtractMoney: (amount) => {
+    const state = get();
+    const newTotal = state.bank.total - amount;
+    set({
+      bank: {
+        ...state.bank,
+        total: newTotal < 0 ? 0 : newTotal,
+      },
+    });
+  },
+
+  setBank: (bank) => set({ bank }),
 }));
