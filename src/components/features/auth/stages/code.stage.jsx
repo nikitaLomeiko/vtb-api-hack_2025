@@ -1,7 +1,7 @@
-import React, { useRef, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { codeSchema } from '../schema/auth.zod.schema';
+import React, { useRef, useEffect } from 'react'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { codeSchema } from '../schema/auth.zod.schema'
 
 const CodeStage = ({ onSubmit, onBack, isLoading, userEmail }) => {
   const {
@@ -9,48 +9,48 @@ const CodeStage = ({ onSubmit, onBack, isLoading, userEmail }) => {
     handleSubmit,
     setValue,
     watch,
-    formState: { errors, isValid }
+    formState: { errors, isValid },
   } = useForm({
     resolver: zodResolver(codeSchema),
-    mode: 'onChange'
-  });
+    mode: 'onChange',
+  })
 
-  const code = watch('code') || '';
-  const inputsRef = useRef([]);
+  const code = watch('code') || ''
+  const inputsRef = useRef([])
 
   useEffect(() => {
     if (inputsRef.current[0]) {
-      inputsRef.current[0].focus();
+      inputsRef.current[0].focus()
     }
-  }, []);
+  }, [])
 
   const handleChange = (index, value) => {
     if (value.length <= 1 && /^\d*$/.test(value)) {
-      const newCode = code.split('');
-      newCode[index] = value;
-      const combinedCode = newCode.join('');
-      setValue('code', combinedCode, { shouldValidate: true });
+      const newCode = code.split('')
+      newCode[index] = value
+      const combinedCode = newCode.join('')
+      setValue('code', combinedCode, { shouldValidate: true })
 
       if (value && index < 5) {
-        inputsRef.current[index + 1]?.focus();
+        inputsRef.current[index + 1]?.focus()
       }
     }
-  };
+  }
 
   const handleKeyDown = (index, e) => {
     if (e.key === 'Backspace' && !code[index] && index > 0) {
-      inputsRef.current[index - 1]?.focus();
+      inputsRef.current[index - 1]?.focus()
     }
-  };
+  }
 
   const handlePaste = (e) => {
-    e.preventDefault();
-    const pastedData = e.clipboardData.getData('text');
+    e.preventDefault()
+    const pastedData = e.clipboardData.getData('text')
     if (/^\d{6}$/.test(pastedData)) {
-      setValue('code', pastedData, { shouldValidate: true });
-      inputsRef.current[5]?.focus();
+      setValue('code', pastedData, { shouldValidate: true })
+      inputsRef.current[5]?.focus()
     }
-  };
+  }
 
   return (
     <div className="max-w-md mx-auto p-6">
@@ -83,12 +83,11 @@ const CodeStage = ({ onSubmit, onBack, isLoading, userEmail }) => {
               />
             ))}
           </div>
-          <input
-            {...register('code')}
-            type="hidden"
-          />
+          <input {...register('code')} type="hidden" />
           {errors.code && (
-            <p className="text-center mt-2 text-sm text-red-600">{errors.code.message}</p>
+            <p className="text-center mt-2 text-sm text-red-600">
+              {errors.code.message}
+            </p>
           )}
         </div>
 
@@ -118,7 +117,7 @@ const CodeStage = ({ onSubmit, onBack, isLoading, userEmail }) => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default CodeStage;
+export default CodeStage

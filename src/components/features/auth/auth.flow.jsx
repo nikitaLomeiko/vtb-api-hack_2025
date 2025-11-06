@@ -1,10 +1,10 @@
-import React from 'react';
-import { useAuth } from './hooks/use.auth';
-import EmailStage from './stages/email.stage';
-import CodeStage from './stages/code.stage';
-import PinStage from './stages/pin.stage';
+import React from 'react'
+import { useAuth } from './hooks/use.auth'
+import EmailStage from './stages/email.stage'
+import CodeStage from './stages/code.stage'
+import PinStage from './stages/pin.stage'
 
-export const AuthFlow = ({onAuthSuccess}) => {
+export const AuthFlow = ({ onAuthSuccess }) => {
   const {
     currentStage,
     userData,
@@ -14,37 +14,37 @@ export const AuthFlow = ({onAuthSuccess}) => {
     updateUserData,
     sendCodeToEmail,
     verifyCode,
-    createPin
-  } = useAuth();
+    createPin,
+  } = useAuth()
 
   const handleEmailSubmit = async (data) => {
-    const { email } = data;
-    updateUserData({ email });
-    await sendCodeToEmail(email);
-    goToNextStage();
-  };
+    const { email } = data
+    updateUserData({ email })
+    await sendCodeToEmail(email)
+    goToNextStage()
+  }
 
   const handleCodeSubmit = async (data) => {
-    const { code } = data;
-    const isValid = await verifyCode(code);
+    const { code } = data
+    const isValid = await verifyCode(code)
     if (isValid) {
-      updateUserData({ code });
-      goToNextStage();
+      updateUserData({ code })
+      goToNextStage()
     } else {
-      alert('Неверный код. Попробуйте снова.');
+      alert('Неверный код. Попробуйте снова.')
     }
-  };
+  }
 
   const handlePinSubmit = async (data) => {
-    const { pin } = data;
-    const success = await createPin(pin);
+    const { pin } = data
+    const success = await createPin(pin)
     if (success) {
-      updateUserData({ pin });
-      console.log('Авторизация завершена!', userData);
-      alert('Авторизация успешно завершена!');
+      updateUserData({ pin })
+      console.log('Авторизация завершена!', userData)
+      alert('Авторизация успешно завершена!')
       onAuthSuccess()
     }
-  };
+  }
 
   const renderStage = () => {
     switch (currentStage) {
@@ -55,7 +55,7 @@ export const AuthFlow = ({onAuthSuccess}) => {
             isLoading={isLoading}
             initialEmail={userData.email}
           />
-        );
+        )
       case 'code':
         return (
           <CodeStage
@@ -64,7 +64,7 @@ export const AuthFlow = ({onAuthSuccess}) => {
             isLoading={isLoading}
             userEmail={userData.email}
           />
-        );
+        )
       case 'pin':
         return (
           <PinStage
@@ -72,18 +72,18 @@ export const AuthFlow = ({onAuthSuccess}) => {
             onBack={goToPrevStage}
             isLoading={isLoading}
           />
-        );
+        )
       default:
-        return null;
+        return null
     }
-  };
+  }
 
   // Прогресс бар
   const getProgress = () => {
-    const stages = ['email', 'code', 'pin'];
-    const currentIndex = stages.indexOf(currentStage);
-    return ((currentIndex + 1) / stages.length) * 100;
-  };
+    const stages = ['email', 'code', 'pin']
+    const currentIndex = stages.indexOf(currentStage)
+    return ((currentIndex + 1) / stages.length) * 100
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
@@ -104,5 +104,5 @@ export const AuthFlow = ({onAuthSuccess}) => {
         {renderStage()}
       </div>
     </div>
-  );
-};
+  )
+}

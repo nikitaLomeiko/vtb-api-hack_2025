@@ -1,1 +1,1 @@
-export { AddBankHint } from "./add.bank.hint";
+export { AddBankHint } from './add.bank.hint'

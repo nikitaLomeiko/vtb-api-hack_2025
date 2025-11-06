@@ -1,16 +1,15 @@
-import { BalanceSummaryCard } from "@components/widgets/balance.summary.card";
-import { BanksList } from "@components/widgets/bank.list";
-import { DenominationList } from "@components/widgets/denomination.list";
-import SlotMachine from "./slot";
+import { BalanceSummaryCard } from '@components/widgets/balance.summary.card'
+import { BanksList } from '@components/widgets/bank.list'
+import { DenominationList } from '@components/widgets/denomination.list'
+import SlotMachine from './slot'
 
 export const HomePage = () => {
-
   return (
     <div>
-      <BalanceSummaryCard/>
-      <DenominationList/>
-      <BanksList/>
-      <SlotMachine/>
-    </div>    
-  );
-};
+      <BalanceSummaryCard />
+      <DenominationList />
+      <BanksList />
+      <SlotMachine />
+    </div>
+  )
+}

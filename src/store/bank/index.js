@@ -1,1 +1,1 @@
-export { useBank } from "./bank.store";
+export { useBank } from './bank.store'

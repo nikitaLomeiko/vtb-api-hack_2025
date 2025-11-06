@@ -1,22 +1,22 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
 export const useAccordion = () => {
-  const [expandedBanks, setExpandedBanks] = useState({});
+  const [expandedBanks, setExpandedBanks] = useState({})
 
   const toggleBank = (bankIndex) => {
-    setExpandedBanks(prev => ({
+    setExpandedBanks((prev) => ({
       ...prev,
-      [bankIndex]: !prev[bankIndex]
-    }));
-  };
+      [bankIndex]: !prev[bankIndex],
+    }))
+  }
 
   const isExpanded = (bankIndex) => {
-    return expandedBanks[bankIndex] || false;
-  };
+    return expandedBanks[bankIndex] || false
+  }
 
   return {
     expandedBanks,
     toggleBank,
-    isExpanded
-  };
-};
+    isExpanded,
+  }
+}

@@ -1,71 +1,71 @@
-import { create } from "zustand";
+import { create } from 'zustand'
 
 export const useBank = create((set, get) => ({
   bank: {
     total: 267233,
     bankList: [
       {
-        name: "Тинькофф",
+        name: 'Тинькофф',
         accounts: [
           {
-            id: "3463463467",
+            id: '3463463467',
             balance: 15670,
-            name: "Основной счет",
+            name: 'Основной счет',
           },
           {
-            id: "3463463425",
+            id: '3463463425',
             balance: 120000,
-            name: "Зарплата",
+            name: 'Зарплата',
           },
         ],
       },
       {
-        name: "ВТБ",
+        name: 'ВТБ',
         accounts: [
           {
-            id: "23523523523",
+            id: '23523523523',
             balance: 50000,
-            name: "Деп",
+            name: 'Деп',
           },
           {
-            id: "235235235235",
+            id: '235235235235',
             balance: 25000,
-            name: "Додеп",
+            name: 'Додеп',
           },
           {
-            id: "23523523536",
+            id: '23523523536',
             balance: 12500,
-            name: "Дододеп",
+            name: 'Дододеп',
           },
           {
-            id: "235235",
+            id: '235235',
             balance: 6250,
-            name: "Додододеп",
+            name: 'Додододеп',
           },
           {
-            id: "23523523535",
+            id: '23523523535',
             balance: 3125,
-            name: "Дододододеп",
+            name: 'Дододододеп',
           },
           {
-            id: "243652345",
+            id: '243652345',
             balance: 1562.5,
-            name: "Додододододеп",
+            name: 'Додододододеп',
           },
           {
-            id: "243652345",
+            id: '243652345',
             balance: 781.25,
-            name: "Дододододододеп",
+            name: 'Дододододододеп',
           },
           {
-            id: "243652345",
+            id: '243652345',
             balance: 390.625,
-            name: "Додододододододеп",
+            name: 'Додододододододеп',
           },
           {
-            id: "243652345",
+            id: '243652345',
             balance: 195.3125,
-            name: "Дододододододододеп",
+            name: 'Дододододододододеп',
           },
         ],
       },
@@ -74,26 +74,26 @@ export const useBank = create((set, get) => ({
 
   // Функция добавления денег к total
   addMoney: (amount) => {
-    const state = get();
+    const state = get()
     set({
       bank: {
         ...state.bank,
         total: state.bank.total + amount,
       },
-    });
+    })
   },
 
   // Функция снятия денег с total
   subtractMoney: (amount) => {
-    const state = get();
-    const newTotal = state.bank.total - amount;
+    const state = get()
+    const newTotal = state.bank.total - amount
     set({
       bank: {
         ...state.bank,
         total: newTotal < 0 ? 0 : newTotal,
       },
-    });
+    })
   },
 
   setBank: (bank) => set({ bank }),
-}));
+}))

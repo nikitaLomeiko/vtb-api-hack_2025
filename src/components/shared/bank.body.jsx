@@ -1,28 +1,31 @@
-import React from 'react';
-import { CreditCardIcon } from '@heroicons/react/24/outline';
-import { formatBalance, declineAccount } from '@lib/utils/bank.utils';
+import React from 'react'
+import { CreditCardIcon } from '@heroicons/react/24/outline'
+import { formatBalance, declineAccount } from '@lib/utils/bank.utils'
 
 export const BankBody = ({ bankItem, onBankClick }) => {
   const handleBankNavigation = (e) => {
-    e.stopPropagation();
-    onBankClick(bankItem);
-  };
+    e.stopPropagation()
+    onBankClick(bankItem)
+  }
 
   return (
     <div className="mt-3">
       <div className="bg-gray-50 rounded-2xl p-4 border border-gray-200">
         {/* Заголовок списка счетов */}
         <div className="flex items-center justify-between mb-4">
-          <h4 className="font-semibold text-gray-900 text-base md:text-lg">Счета банка</h4>
+          <h4 className="font-semibold text-gray-900 text-base md:text-lg">
+            Счета банка
+          </h4>
           <span className="text-gray-500 text-sm">
-            {bankItem.accounts.length} {declineAccount(bankItem.accounts.length)}
+            {bankItem.accounts.length}{' '}
+            {declineAccount(bankItem.accounts.length)}
           </span>
         </div>
 
         {/* Список всех счетов */}
         <div className="space-y-3">
           {bankItem.accounts.map((account, accIndex) => (
-            <div 
+            <div
               key={account.id}
               onClick={handleBankNavigation}
               className="flex flex-col sm:flex-row sm:items-center justify-between p-3 md:p-4 bg-white rounded-xl border border-gray-200/50 hover:border-gray-300 transition-colors cursor-pointer space-y-2 sm:space-y-0"
@@ -35,10 +38,12 @@ export const BankBody = ({ bankItem, onBankClick }) => {
                   <p className="font-semibold text-gray-900 text-base md:text-lg truncate">
                     {account.id ? `•••• ${account.id.slice(-4)}` : 'Новый счет'}
                   </p>
-                  <p className="text-gray-500 text-sm truncate">{account.name || 'Основной счет'}</p>
+                  <p className="text-gray-500 text-sm truncate">
+                    {account.name || 'Основной счет'}
+                  </p>
                 </div>
               </div>
-              
+
               <div className="text-right sm:text-left sm:min-w-24">
                 <p className="text-lg md:text-xl font-bold text-gray-900 whitespace-nowrap">
                   {formatBalance(account.balance)} ₽
@@ -54,16 +59,16 @@ export const BankBody = ({ bankItem, onBankClick }) => {
 
         {/* Действия с банком */}
         <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3 mt-4 pt-4 border-t border-gray-200">
-          <button 
+          <button
             onClick={handleBankNavigation}
             className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold transition-colors text-center text-sm md:text-base"
           >
             Управление счетами
           </button>
-          <button 
+          <button
             onClick={(e) => {
-              e.stopPropagation();
-              console.log('Быстрый перевод для', bankItem.name);
+              e.stopPropagation()
+              console.log('Быстрый перевод для', bankItem.name)
             }}
             className="flex-1 bg-white border border-blue-600 text-blue-600 hover:bg-blue-50 py-3 rounded-xl font-semibold transition-colors text-center text-sm md:text-base"
           >
@@ -72,5 +77,5 @@ export const BankBody = ({ bankItem, onBankClick }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

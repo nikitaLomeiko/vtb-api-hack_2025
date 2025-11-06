@@ -1,33 +1,33 @@
-import React from 'react';
-import { AuthFlow } from '@components/features/auth';
-import { PinLogin } from '@components/features/login';
+import React from 'react'
+import { AuthFlow } from '@components/features/auth'
+import { PinLogin } from '@components/features/login'
 
 export const AuthProvider = ({ onAuthSuccess, children }) => {
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
-  const [showPinLogin, setShowPinLogin] = React.useState(false);
-  const [isChecking, setIsChecking] = React.useState(true);
+  const [isAuthenticated, setIsAuthenticated] = React.useState(false)
+  const [showPinLogin, setShowPinLogin] = React.useState(false)
+  const [isChecking, setIsChecking] = React.useState(true)
 
   // Проверяем при загрузке - есть ли сохраненный пин
   React.useEffect(() => {
     const checkAuthStatus = () => {
-      const hasPin = !!localStorage.getItem('user_pin');
-      setShowPinLogin(hasPin);
-      setIsChecking(false);
-    };
+      const hasPin = !!localStorage.getItem('user_pin')
+      setShowPinLogin(hasPin)
+      setIsChecking(false)
+    }
 
-    checkAuthStatus();
-  }, []);
+    checkAuthStatus()
+  }, [])
 
   const handleAuthSuccess = () => {
-    setIsAuthenticated(true);
-    setShowPinLogin(true);
-    onAuthSuccess?.();
-  };
+    setIsAuthenticated(true)
+    setShowPinLogin(true)
+    onAuthSuccess?.()
+  }
 
   const handleLoginSuccess = () => {
-    setIsAuthenticated(true);
-    onAuthSuccess?.();
-  };
+    setIsAuthenticated(true)
+    onAuthSuccess?.()
+  }
 
   // Пока проверяем аутентификацию
   if (isChecking) {
@@ -38,7 +38,7 @@ export const AuthProvider = ({ onAuthSuccess, children }) => {
           <p className="text-gray-600">Проверка авторизации...</p>
         </div>
       </div>
-    );
+    )
   }
 
   if (!isAuthenticated) {
@@ -46,8 +46,8 @@ export const AuthProvider = ({ onAuthSuccess, children }) => {
       <PinLogin onLoginSuccess={handleLoginSuccess} />
     ) : (
       <AuthFlow onAuthSuccess={handleAuthSuccess} />
-    );
+    )
   }
 
-  return children;
-};
+  return children
+}

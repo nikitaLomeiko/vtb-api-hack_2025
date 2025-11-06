@@ -1,8 +1,8 @@
-import React from "react";
-import { BuildingLibraryIcon } from "@heroicons/react/24/outline";
+import React from 'react'
+import { BuildingLibraryIcon } from '@heroicons/react/24/outline'
 
 export const AddBankHint = ({ onAddBank, bankCount }) => {
-  if (bankCount >= 3) return null;
+  if (bankCount >= 3) return null
 
   return (
     <div className="mt-6 md:mt-8 p-4 md:p-5 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl border border-blue-200/50">
@@ -11,8 +11,12 @@ export const AddBankHint = ({ onAddBank, bankCount }) => {
           <BuildingLibraryIcon className="w-5 h-5 md:w-6 md:h-6" />
         </div>
         <div className="flex-1">
-          <p className="text-blue-800 font-semibold text-sm md:text-base">Добавьте больше банков</p>
-          <p className="text-blue-600 text-xs md:text-sm mt-1">Объедините все ваши финансы для полного контроля</p>
+          <p className="text-blue-800 font-semibold text-sm md:text-base">
+            Добавьте больше банков
+          </p>
+          <p className="text-blue-600 text-xs md:text-sm mt-1">
+            Объедините все ваши финансы для полного контроля
+          </p>
         </div>
         <button
           onClick={onAddBank}
@@ -22,5 +26,5 @@ export const AddBankHint = ({ onAddBank, bankCount }) => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}

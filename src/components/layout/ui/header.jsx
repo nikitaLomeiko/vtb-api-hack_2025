@@ -1,16 +1,15 @@
-import React from 'react';
-import { UserCircleIcon } from '@heroicons/react/24/outline';
-import SearchInput from './search.input';
-import Navigation from './navigation';
+import React from 'react'
+import { UserCircleIcon } from '@heroicons/react/24/outline'
+import SearchInput from './search.input'
+import Navigation from './navigation'
 
 const Header = () => {
-  const userName = "Алексей";
+  const userName = 'Алексей'
 
   return (
     <>
       <header className="bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg sticky top-0 z-40">
         <div className="flex items-center justify-between p-4">
-          
           {/* Блок профиля */}
           <div className="flex items-center space-x-3 flex-1 min-w-0">
             <div className="bg-white/20 p-1.5 rounded-full flex-shrink-0">
@@ -39,7 +38,7 @@ const Header = () => {
         <Navigation />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

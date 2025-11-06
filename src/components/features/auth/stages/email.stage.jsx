@@ -1,31 +1,38 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { emailSchema } from '../schema/auth.zod.schema';
+import React from 'react'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { emailSchema } from '../schema/auth.zod.schema'
 
 const EmailStage = ({ onSubmit, isLoading, initialEmail }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid }
+    formState: { errors, isValid },
   } = useForm({
     resolver: zodResolver(emailSchema),
     mode: 'onChange',
     defaultValues: {
-      email: initialEmail || ''
-    }
-  });
+      email: initialEmail || '',
+    },
+  })
 
   return (
     <div className="max-w-md mx-auto p-6">
       <div className="text-center mb-8">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">Вход в приложение</h1>
-        <p className="text-gray-600">Введите ваш email для получения кода доступа</p>
+        <h1 className="text-2xl font-bold text-gray-900 mb-2">
+          Вход в приложение
+        </h1>
+        <p className="text-gray-600">
+          Введите ваш email для получения кода доступа
+        </p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             Email
           </label>
           <input
@@ -57,7 +64,7 @@ const EmailStage = ({ onSubmit, isLoading, initialEmail }) => {
         </button>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default EmailStage;
+export default EmailStage

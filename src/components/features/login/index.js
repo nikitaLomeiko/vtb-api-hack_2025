@@ -1,1 +1,1 @@
-export { PinLogin } from "./pin.login";
+export { PinLogin } from './pin.login'

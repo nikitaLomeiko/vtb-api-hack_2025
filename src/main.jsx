@@ -6,7 +6,7 @@ createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <App />
   </BrowserRouter>
-  )
+)
 
 // if ('serviceWorker' in navigator) {
 //   window.addEventListener('load', () => {

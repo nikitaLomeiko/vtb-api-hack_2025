@@ -1,38 +1,45 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { pinSchema } from '../schema/auth.zod.schema';
+import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { pinSchema } from '../schema/auth.zod.schema'
 
 const PinStage = ({ onSubmit, onBack, isLoading }) => {
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors, isValid }
+    formState: { errors, isValid },
   } = useForm({
     resolver: zodResolver(pinSchema),
-    mode: 'onChange'
-  });
+    mode: 'onChange',
+  })
 
-  const [showPin, setShowPin] = useState(false);
-  const pin = watch('pin') || '';
+  const [showPin, setShowPin] = useState(false)
+  const pin = watch('pin') || ''
 
   return (
     <div className="max-w-md mx-auto p-6">
       <div className="text-center mb-8">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">Создайте пин-код</h1>
-        <p className="text-gray-600">Пин-код будет использоваться для быстрого входа в приложение</p>
+        <h1 className="text-2xl font-bold text-gray-900 mb-2">
+          Создайте пин-код
+        </h1>
+        <p className="text-gray-600">
+          Пин-код будет использоваться для быстрого входа в приложение
+        </p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <div>
-          <label htmlFor="pin" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="pin"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             Пин-код (4 цифры)
           </label>
           <div className="relative">
             <input
               {...register('pin')}
-              type={showPin ? "text" : "password"}
+              type={showPin ? 'text' : 'password'}
               id="pin"
               inputMode="numeric"
               maxLength="4"
@@ -54,7 +61,10 @@ const PinStage = ({ onSubmit, onBack, isLoading }) => {
         </div>
 
         <div>
-          <label htmlFor="confirmPin" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="confirmPin"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             Подтвердите пин-код
           </label>
           <input
@@ -68,7 +78,9 @@ const PinStage = ({ onSubmit, onBack, isLoading }) => {
             disabled={isLoading}
           />
           {errors.confirmPin && (
-            <p className="mt-2 text-sm text-red-600">{errors.confirmPin.message}</p>
+            <p className="mt-2 text-sm text-red-600">
+              {errors.confirmPin.message}
+            </p>
           )}
         </div>
 
@@ -112,7 +124,7 @@ const PinStage = ({ onSubmit, onBack, isLoading }) => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default PinStage;
+export default PinStage

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Footer = () => {
   return (
@@ -17,25 +17,32 @@ const Footer = () => {
 
           {/* Ссылки */}
           <div className="flex space-x-6 text-sm">
-            <a href="#" className="text-gray-500 hover:text-blue-600 transition-colors">
+            <a
+              href="#"
+              className="text-gray-500 hover:text-blue-600 transition-colors"
+            >
               Поддержка
             </a>
-            <a href="#" className="text-gray-500 hover:text-blue-600 transition-colors">
+            <a
+              href="#"
+              className="text-gray-500 hover:text-blue-600 transition-colors"
+            >
               Безопасность
             </a>
-            <a href="#" className="text-gray-500 hover:text-blue-600 transition-colors">
+            <a
+              href="#"
+              className="text-gray-500 hover:text-blue-600 transition-colors"
+            >
               Тарифы
             </a>
           </div>
 
           {/* Контакты */}
-          <div className="text-gray-500 text-sm">
-            📞 8-800-123-45-67
-          </div>
+          <div className="text-gray-500 text-sm">📞 8-800-123-45-67</div>
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
