@@ -76,3 +76,29 @@ export const getBankIcon = (bankName) => {
   }
   return icons[bankName] || icons.default
 }
+
+export const formatTerm = (months) => {
+  const years = Math.floor(months / 12)
+  const remainingMonths = months % 12
+
+  if (years === 0) {
+    return `${months} месяцев`
+  }
+
+  if (remainingMonths === 0) {
+    return `${years} ${declineYear(years)}`
+  }
+
+  return `${years} ${declineYear(years)} ${remainingMonths} месяцев`
+}
+
+export const declineYear = (count) => {
+  if (count % 10 === 1 && count % 100 !== 11) return 'год'
+  if (
+    count % 10 >= 2 &&
+    count % 10 <= 4 &&
+    (count % 100 < 10 || count % 100 >= 20)
+  )
+    return 'года'
+  return 'лет'
+}

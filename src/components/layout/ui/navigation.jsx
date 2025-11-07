@@ -5,6 +5,7 @@ import {
   CreditCardIcon,
   ChartBarIcon,
   Cog6ToothIcon,
+  BanknotesIcon,
 } from '@heroicons/react/24/outline'
 import { useNavigate } from 'react-router-dom'
 
@@ -34,8 +35,9 @@ const Navigation = () => {
       path: '/transactions',
       icon: ArrowsRightLeftIcon,
     },
-    { id: 'карты', label: 'Карты', path: '/', icon: CreditCardIcon },
+    // { id: 'карты', label: 'Карты', path: '/', icon: CreditCardIcon },
     { id: 'аналитика', label: 'Аналитика', path: '/', icon: ChartBarIcon },
+    { id: 'вклады', label: 'Вклады', path: '/deposit', icon: BanknotesIcon },
     { id: 'еще', label: 'Еще', path: '/', icon: Cog6ToothIcon },
   ]
 
