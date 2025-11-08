@@ -15,7 +15,6 @@ export const CreateDepositForm = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  // Выбранный продукт для отображения деталей
   const selectedProduct = formData.productId
     ? getProductById(formData.productId)
     : null
@@ -34,7 +33,6 @@ export const CreateDepositForm = () => {
       const amount = parseFloat(formData.amount)
       const termMonths = parseInt(formData.termMonths)
 
-      // Валидация
       if (
         amount < selectedProduct.minAmount ||
         amount > selectedProduct.maxAmount
@@ -54,7 +52,6 @@ export const CreateDepositForm = () => {
         return
       }
 
-      // Создание вклада
       const newDeposit = createDeposit({
         productId: formData.productId,
         productName: selectedProduct.productName,
@@ -64,7 +61,6 @@ export const CreateDepositForm = () => {
         description: selectedProduct.description,
       })
 
-      // Успешное создание
       alert('Вклад успешно создан!')
       navigate('/deposit')
     } catch (error) {
@@ -86,7 +82,6 @@ export const CreateDepositForm = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-8 mb-[110px] md:mb-0">
       <div className="container mx-auto px-4 max-w-2xl">
-        {/* Хедер */}
         <div className="flex items-center mb-8">
           <button
             onClick={() => navigate('/deposit')}
@@ -119,7 +114,6 @@ export const CreateDepositForm = () => {
 
         <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Выбор типа вклада */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-3">
                 Тип вклада *
@@ -170,7 +164,6 @@ export const CreateDepositForm = () => {
               </div>
             </div>
 
-            {/* Детали выбранного вклада */}
             {selectedProduct && (
               <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
                 <h4 className="font-semibold text-blue-900 mb-3">
@@ -205,7 +198,6 @@ export const CreateDepositForm = () => {
               </div>
             )}
 
-            {/* Сумма вклада */}
             <div>
               <label
                 htmlFor="amount"
@@ -222,7 +214,7 @@ export const CreateDepositForm = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, amount: e.target.value })
                   }
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:text-gray-500 disabled:border-gray-200 disabled:cursor-not-allowed"
                   placeholder="Введите сумму"
                   min={selectedProduct?.minAmount || 0}
                   max={selectedProduct?.maxAmount || 10000000}
@@ -239,7 +231,6 @@ export const CreateDepositForm = () => {
               )}
             </div>
 
-            {/* Срок вклада */}
             <div>
               <label
                 htmlFor="termMonths"
@@ -256,11 +247,10 @@ export const CreateDepositForm = () => {
                 onChange={(e) =>
                   setFormData({ ...formData, termMonths: e.target.value })
                 }
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:text-gray-500 disabled:border-gray-200 disabled:cursor-not-allowed"
                 placeholder="Введите срок в месяцах"
                 min={selectedProduct?.termMonths || 1}
                 max={selectedProduct?.termMonths || 60}
-                readOnly={!!selectedProduct}
               />
               {selectedProduct && (
                 <p className="text-sm text-gray-500 mt-2">
@@ -269,7 +259,6 @@ export const CreateDepositForm = () => {
               )}
             </div>
 
-            {/* Кнопка отправки */}
             <button
               type="submit"
               disabled={isSubmitting || !selectedProduct}
