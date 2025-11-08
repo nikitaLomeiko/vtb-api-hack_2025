@@ -6,7 +6,7 @@ import { useContactStore } from '@store/contact'
 import { useTransaction } from '@store/transaction'
 import { formatBalance } from '@lib/utils/bank.utils'
 
-export const TransactionForm = () => {
+export const TransactionForm = ({ isComponent }) => {
   const navigate = useNavigate()
   const { bank, subtractMoney } = useBank()
   const { contacts, addRecentTransaction } = useContactStore()
@@ -134,10 +134,16 @@ export const TransactionForm = () => {
   }
 
   return (
-    <div className="min-h-[calc(100vh-72px)] relative bg-gray-50 py-8">
+    <div
+      className={`${
+        !isComponent ?? 'min-h-[calc(100vh-72px)]'
+      } relative bg-gray-50 py-8`}
+    >
       <button
         onClick={() => navigate('/')}
-        className="hidden absolute left-5 top-8 md:flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors mr-6"
+        className={`${
+          isComponent ?? 'md:hidden'
+        } hidden absolute left-5 top-8 md:flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors mr-6`}
       >
         <ArrowLeftIcon className="w-5 h-5" />
         <span>Назад</span>
@@ -146,7 +152,9 @@ export const TransactionForm = () => {
         <div className="md:ml-8 flex items-center mb-8">
           <button
             onClick={() => navigate('/')}
-            className="md:hidden flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors mr-6"
+            className={`${
+              isComponent ?? 'hidden'
+            } md:hidden flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors mr-6`}
           >
             <ArrowLeftIcon className="w-5 h-5" />
             <span>Назад</span>
