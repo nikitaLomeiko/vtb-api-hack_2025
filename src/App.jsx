@@ -8,13 +8,13 @@ import audio from './assets/audio/run.ogg'
 
 function App() {
   return (
-    <SoundProvider runAudio={audio}>
-      <AuthProvider onAuthSuccess={() => console.log('Успешная авторизация')}>
-        <Layout>
-          <Routing />
-        </Layout>
-      </AuthProvider>
-    </SoundProvider>
+    // <SoundProvider runAudio={audio}>
+    //   <AuthProvider onAuthSuccess={() => console.log('Успешная авторизация')}>
+    <Layout>
+      <Routing />
+    </Layout>
+    //   </AuthProvider>
+    // </SoundProvider>
   )
 }
 

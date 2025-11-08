@@ -41,6 +41,7 @@ export default defineConfig({
       '@routes': new URL('./src/routes', import.meta.url).pathname,
       '@store': new URL('./src/store', import.meta.url).pathname,
       '@lib': new URL('./src/lib', import.meta.url).pathname,
+      '@api': new URL('./src/api', import.meta.url).pathname,
     },
   },
 })
