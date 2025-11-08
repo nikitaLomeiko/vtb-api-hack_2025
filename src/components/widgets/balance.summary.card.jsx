@@ -5,9 +5,13 @@ import {
   ArrowsRightLeftIcon,
 } from '@heroicons/react/24/outline'
 import { useBank } from '@store/bank'
+import { TransactionForm } from '@components/features/transactions'
+import { Modal } from '@components/shared/modal'
 
-export const BalanceSummaryCard = ({ onTransfer }) => {
+export const BalanceSummaryCard = () => {
   const [isBalanceVisible, setIsBalanceVisible] = useState(true)
+  const [isVisibleModal, setIsVisibleModal] = useState(false)
+
   const { bank } = useBank()
 
   const formattedBalance = bank.total.toLocaleString('ru-RU', {
@@ -16,106 +20,104 @@ export const BalanceSummaryCard = ({ onTransfer }) => {
   })
 
   return (
-    <div className="bg-[var(--bg-secondary)] rounded-2xl p-4 md:p-24 my-4 shadow-sm border border-[var(--border-primary)] relative overflow-hidden">
-      {/* Маленькие летающие круги по всему пространству */}
+    <div className="bg-(--bg-secondary) rounded-2xl p-4 md:p-24 my-4 shadow-sm border border-(--border-primary) relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        {/* Круги с разными траекториями по всей карточке */}
         <div
-          className="absolute top-1/4 left-1/4 w-4 h-4 md:w-6 md:h-6 rounded-full bg-[var(--accent-primary)]/30 animate-float-wide-1"
+          className="absolute top-1/4 left-1/4 w-4 h-4 md:w-6 md:h-6 rounded-full bg-(--accent-primary)/30 animate-float-wide-1"
           style={{ animation: 'floatWide1 15s infinite linear' }}
         />
         <div
-          className="absolute top-3/4 left-1/3 w-3 h-3 md:w-5 md:h-5 rounded-full bg-[var(--accent-primary)]/40 animate-float-wide-2"
+          className="absolute top-3/4 left-1/3 w-3 h-3 md:w-5 md:h-5 rounded-full bg-(--accent-primary)/40 animate-float-wide-2"
           style={{ animation: 'floatWide2 18s infinite linear' }}
         />
         <div
-          className="absolute top-1/3 left-3/4 w-5 h-5 md:w-7 md:h-7 rounded-full bg-[var(--accent-secondary)]/35 animate-float-wide-3"
+          className="absolute top-1/3 left-3/4 w-5 h-5 md:w-7 md:h-7 rounded-full bg-(--accent-secondary)/35 animate-float-wide-3"
           style={{ animation: 'floatWide3 12s infinite linear' }}
         />
         <div
-          className="absolute top-2/3 left-1/6 w-2 h-2 md:w-4 md:h-4 rounded-full bg-[var(--accent-primary)]/45 animate-float-wide-4"
+          className="absolute top-2/3 left-1/6 w-2 h-2 md:w-4 md:h-4 rounded-full bg-(--accent-primary)/45 animate-float-wide-4"
           style={{ animation: 'floatWide4 20s infinite linear' }}
         />
         <div
-          className="absolute top-1/6 left-2/3 w-4 h-4 md:w-6 md:h-6 rounded-full bg-[var(--accent-secondary)]/30 animate-float-wide-5"
+          className="absolute top-1/6 left-2/3 w-4 h-4 md:w-6 md:h-6 rounded-full bg-(--accent-secondary)/30 animate-float-wide-5"
           style={{ animation: 'floatWide5 16s infinite linear' }}
         />
         <div
-          className="absolute top-4/5 left-4/5 w-3 h-3 md:w-5 md:h-5 rounded-full bg-[var(--accent-primary)]/35 animate-float-wide-6"
+          className="absolute top-4/5 left-4/5 w-3 h-3 md:w-5 md:h-5 rounded-full bg-(--accent-primary)/35 animate-float-wide-6"
           style={{ animation: 'floatWide6 14s infinite linear' }}
         />
         <div
-          className="absolute top-1/2 left-1/8 w-4 h-4 md:w-6 md:h-6 rounded-full bg-[var(--accent-secondary)]/25 animate-float-wide-7"
+          className="absolute top-1/2 left-1/8 w-4 h-4 md:w-6 md:h-6 rounded-full bg-(--accent-secondary)/25 animate-float-wide-7"
           style={{ animation: 'floatWide7 22s infinite linear' }}
         />
         <div
-          className="absolute top-1/8 left-1/2 w-2 h-2 md:w-4 md:h-4 rounded-full bg-[var(--accent-primary)]/40 animate-float-wide-8"
+          className="absolute top-1/8 left-1/2 w-2 h-2 md:w-4 md:h-4 rounded-full bg-(--accent-primary)/40 animate-float-wide-8"
           style={{ animation: 'floatWide8 19s infinite linear' }}
         />
       </div>
 
-      {/* Заголовок */}
       <div className="text-center mb-8 md:mb-12 mt-10 relative z-10">
-        <p className="text-[var(--text-secondary)] text-sm font-medium">
+        <p className="text-(--text-secondary) text-sm font-medium">
           Общий баланс
         </p>
       </div>
 
-      {/* Основной баланс с кругами */}
       <div className="relative flex justify-center items-center mb-12 md:mb-16">
-        {/* Большие пульсирующие круги вокруг цифры */}
         <div className="absolute flex items-center justify-center">
           <div
-            className="absolute w-64 h-64 md:w-80 md:h-80 rounded-full bg-[var(--accent-primary)]/25 animate-pulse"
+            className="absolute w-64 h-64 md:w-80 md:h-80 rounded-full bg-(--accent-primary)/25 animate-pulse"
             style={{ animation: 'pulse 4s infinite' }}
           />
           <div
-            className="absolute w-56 h-56 md:w-64 md:h-64 rounded-full bg-[var(--accent-primary)]/30 animate-pulse"
+            className="absolute w-56 h-56 md:w-64 md:h-64 rounded-full bg-(--accent-primary)/30 animate-pulse"
             style={{ animation: 'pulse 3.5s infinite 0.3s' }}
           />
           <div
-            className="absolute w-32 h-32 md:w-48 md:h-48 rounded-full bg-[var(--accent-primary)]/35 animate-pulse"
+            className="absolute w-32 h-32 md:w-48 md:h-48 rounded-full bg-(--accent-primary)/35 animate-pulse"
             style={{ animation: 'pulse 3s infinite 0.6s' }}
           />
         </div>
 
-        {/* Контейнер баланса и кнопки */}
         <div className="relative z-10 flex items-center md:space-x-6">
-          {/* Основной баланс */}
           <div
             className={`transition-all duration-500 md:translate-x-4 ${
               !isBalanceVisible ? 'filter blur-[2px] opacity-80' : ''
             }`}
           >
-            <h1 className="text-4xl md:text-7xl font-black text-[var(--text-primary)]">
+            <h1 className="text-4xl md:text-7xl font-black text-(--text-primary)">
               {isBalanceVisible ? `${formattedBalance} ₽` : '•••••••'}
             </h1>
           </div>
 
-          {/* Кнопка скрытия */}
           <button
             onClick={() => setIsBalanceVisible(!isBalanceVisible)}
-            className="p-2 md:p-3 hover:bg-[var(--bg-tertiary)] rounded-xl transition-colors flex-shrink-0 border border-[var(--border-primary)] ml-2 md:ml-0 z-20"
+            className="p-2 md:p-3 hover:bg-(--bg-tertiary) rounded-xl transition-colors shrink-0 border border-(--border-primary) ml-2 md:ml-0 z-20"
           >
             {isBalanceVisible ? (
-              <EyeSlashIcon className="w-5 h-5 md:w-6 md:h-6 text-[var(--text-secondary)]" />
+              <EyeSlashIcon className="w-5 h-5 md:w-6 md:h-6 text-(--text-secondary)" />
             ) : (
-              <EyeIcon className="w-5 h-5 md:w-6 md:h-6 text-[var(--text-secondary)]" />
+              <EyeIcon className="w-5 h-5 md:w-6 md:h-6 text-(--text-secondary)" />
             )}
           </button>
         </div>
       </div>
 
-      {/* Кнопка перевода */}
       <button
-        onClick={onTransfer}
-        className="w-full md:mt-40 mt-32 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] hover:from-[var(--accent-hover)] hover:to-[var(--accent-secondary)] text-white py-3 md:py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg hover:shadow-xl relative z-10"
+        onClick={() => setIsVisibleModal(true)}
+        className="w-full md:mt-40 mt-32 bg-linear-to-r from-(--accent-primary) to-(--accent-secondary) hover:from-(--accent-hover) hover:to-(--accent-secondary) text-white py-3 md:py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg hover:shadow-xl relative z-10"
       >
         <ArrowsRightLeftIcon className="w-5 h-5" />
         <span>Перевести</span>
       </button>
 
-      {/* CSS анимации */}
+      <Modal
+        isOpen={isVisibleModal}
+        onClose={() => setIsVisibleModal(false)}
+        size="md"
+      >
+        <TransactionForm />
+      </Modal>
+
       <style jsx>{`
         @keyframes pulse {
           0% {
