@@ -19,7 +19,7 @@ export const SoundProvider = ({ runAudio, children }) => {
       .catch((error) => {
         console.log(
           'Автозапуск аудио заблокирован, ждем взаимодействия:',
-          error
+          error,
         )
 
         // Обработчики для первого пользовательского взаимодействия

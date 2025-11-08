@@ -1,0 +1,213 @@
+/* Default Light Theme */
+[data-theme='light'] {
+  --bg-primary: #ffffff;
+  --bg-secondary: rgb(66, 66, 216);
+  --bg-tertiary: #f1f5f9;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-tertiary: #9ca3af;
+  --border-primary: #e5e7eb;
+  --border-secondary: #d1d5db;
+  --accent-primary: #4f46e5;
+  --accent-secondary: #6366f1;
+  --accent-hover: #4338ca;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+  --border-primary: #334155;
+  --border-secondary: #475569;
+  --accent-primary: #6366f1;
+  --accent-secondary: #818cf8;
+  --accent-hover: #4f46e5;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='nightowl'] {
+  --bg-primary: #011627;
+  --bg-secondary: #011e3c;
+  --bg-tertiary: #1d3b53;
+  --text-primary: #d6deeb;
+  --text-secondary: #7c8da5;
+  --text-tertiary: #5f7e97;
+  --border-primary: #1d3b53;
+  --border-secondary: #2d4b63;
+  --accent-primary: #7dd3fc;
+  --accent-secondary: #bae6fd;
+  --accent-hover: #38bdf8;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='sunset'] {
+  --bg-primary: #1c1917;
+  --bg-secondary: #292524;
+  --bg-tertiary: #44403c;
+  --text-primary: #fafaf9;
+  --text-secondary: #d6d3d1;
+  --text-tertiary: #a8a29e;
+  --border-primary: #57534e;
+  --border-secondary: #78716c;
+  --accent-primary: #f97316;
+  --accent-secondary: #fb923c;
+  --accent-hover: #ea580c;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='forest'] {
+  --bg-primary: #052e16;
+  --bg-secondary: #14532d;
+  --bg-tertiary: #166534;
+  --text-primary: #f0fdf4;
+  --text-secondary: #bbf7d0;
+  --text-tertiary: #86efac;
+  --border-primary: #166534;
+  --border-secondary: #15803d;
+  --accent-primary: #22c55e;
+  --accent-secondary: #4ade80;
+  --accent-hover: #16a34a;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='ocean'] {
+  --bg-primary: #164e63;
+  --bg-secondary: #0e7490;
+  --bg-tertiary: #0891b2;
+  --text-primary: #f0fdfd;
+  --text-secondary: #a5f3fc;
+  --text-tertiary: #67e8f9;
+  --border-primary: #0891b2;
+  --border-secondary: #06b6d4;
+  --accent-primary: #06b6d4;
+  --accent-secondary: #22d3ee;
+  --accent-hover: #0891b2;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='lavender'] {
+  --bg-primary: #faf5ff;
+  --bg-secondary: #f3e8ff;
+  --bg-tertiary: #e9d5ff;
+  --text-primary: #581c87;
+  --text-secondary: #7e22ce;
+  --text-tertiary: #a855f7;
+  --border-primary: #e9d5ff;
+  --border-secondary: #d8b4fe;
+  --accent-primary: #a855f7;
+  --accent-secondary: #c084fc;
+  --accent-hover: #9333ea;
+  --shadow:
+    0 1px 3px 0 rgba(168, 85, 247, 0.1), 0 1px 2px 0 rgba(168, 85, 247, 0.06);
+  --shadow-lg:
+    0 10px 15px -3px rgba(168, 85, 247, 0.1),
+    0 4px 6px -2px rgba(168, 85, 247, 0.05);
+}
+
+[data-theme='coffee'] {
+  --bg-primary: #292524;
+  --bg-secondary: #44403c;
+  --bg-tertiary: #57534e;
+  --text-primary: #f5f5f4;
+  --text-secondary: #d6d3d1;
+  --text-tertiary: #a8a29e;
+  --border-primary: #57534e;
+  --border-secondary: #78716c;
+  --accent-primary: #d97706;
+  --accent-secondary: #f59e0b;
+  --accent-hover: #b45309;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+}
+
+/* Base styles using CSS variables */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Utility classes using CSS variables */
+.bg-primary {
+  background-color: var(--bg-primary);
+}
+
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.bg-tertiary {
+  background-color: var(--bg-tertiary);
+}
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.border-primary {
+  border-color: var(--border-primary);
+}
+
+.border-secondary {
+  border-color: var(--border-secondary);
+}
+
+.border-accent {
+  border-color: var(--accent-primary);
+}
+
+.accent-primary {
+  background-color: var(--accent-primary);
+}
+
+.accent-secondary {
+  background-color: var(--accent-secondary);
+}
+
+.text-accent {
+  color: var(--accent-primary);
+}
+
+.shadow-regular {
+  box-shadow: var(--shadow);
+}
+
+.shadow-large {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Hover states */
+.hover-accent:hover {
+  background-color: var(--accent-hover);
+}
+
+.hover-bg-secondary:hover {
+  background-color: var(--bg-secondary);
+}

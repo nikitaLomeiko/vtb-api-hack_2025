@@ -38,7 +38,12 @@ const Navigation = () => {
     // { id: 'карты', label: 'Карты', path: '/', icon: CreditCardIcon },
     { id: 'аналитика', label: 'Аналитика', path: '/', icon: ChartBarIcon },
     { id: 'вклады', label: 'Вклады', path: '/deposit', icon: BanknotesIcon },
-    { id: 'еще', label: 'Еще', path: '/', icon: Cog6ToothIcon },
+    {
+      id: 'настройки',
+      label: 'Настройки',
+      path: '/settings',
+      icon: Cog6ToothIcon,
+    },
   ]
 
   const handleNavClick = (itemId) => {
@@ -79,7 +84,7 @@ const Navigation = () => {
 
   // Мобильная версия - тулбар внизу экрана
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 md:hidden">
+    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 md:hidden z-90">
       <div className="flex justify-around items-center py-2">
         {navItems.map((item) => {
           const IconComponent = item.icon

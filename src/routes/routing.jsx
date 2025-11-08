@@ -3,6 +3,7 @@ import { HomePage } from '@pages/home.page'
 import { TransactionsPage } from '@pages/transactions.page'
 import { Deposit } from '@pages/deposit.page'
 import { DepositDetails } from '@pages/deposit-details.page'
+import { SettingsPage } from '@pages/settings-page/settings.page'
 
 export const Routing = () => {
   return (
@@ -11,6 +12,7 @@ export const Routing = () => {
       <Route path="/transactions" element={<TransactionsPage />} />
       <Route path="/deposit" element={<Deposit />} />
       <Route path="/deposit/:id" element={<DepositDetails />} />
+      <Route path="/settings/" element={<SettingsPage />} />
     </Routes>
   )
 }

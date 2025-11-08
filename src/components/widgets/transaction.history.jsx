@@ -75,7 +75,7 @@ export const TransactionHistory = () => {
                     {formatAmount(
                       trans.amount.amount,
                       trans.amount.currency,
-                      trans.creditDebitIndicator
+                      trans.creditDebitIndicator,
                     )}
                   </div>
                   <div className="text-xs text-gray-400 mt-1">

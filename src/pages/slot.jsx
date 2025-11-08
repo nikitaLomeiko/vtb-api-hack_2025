@@ -165,8 +165,8 @@ const SlotMachine = () => {
               spinning
                 ? 'bg-gray-600 cursor-not-allowed scale-95'
                 : bank.total < betAmount
-                ? 'bg-red-700 cursor-not-allowed'
-                : 'bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 hover:scale-105 active:scale-95'
+                  ? 'bg-red-700 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 hover:scale-105 active:scale-95'
             }`}
             onClick={spin}
             disabled={spinning || bank.total < betAmount}
@@ -191,8 +191,8 @@ const SlotMachine = () => {
               result.includes('ДЖЕКПОТ')
                 ? 'bg-gradient-to-r from-yellow-400 to-orange-400 text-black border-yellow-300 animate-bounce'
                 : result.includes('Почти')
-                ? 'bg-gradient-to-r from-green-400 to-blue-400 text-white border-green-300'
-                : 'bg-gradient-to-r from-red-500 to-pink-500 text-white border-red-300'
+                  ? 'bg-gradient-to-r from-green-400 to-blue-400 text-white border-green-300'
+                  : 'bg-gradient-to-r from-red-500 to-pink-500 text-white border-red-300'
             } shadow-2xl`}
           >
             {result}

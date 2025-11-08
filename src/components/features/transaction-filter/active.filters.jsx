@@ -32,7 +32,7 @@ export const ActiveFilters = () => {
         {transaction.dateRange.start && (
           <FilterChip
             label={`📅 С ${new Date(
-              transaction.dateRange.start
+              transaction.dateRange.start,
             ).toLocaleDateString('ru-RU')}`}
             onRemove={() => removeFilter('startDate')}
             color="green"
@@ -42,7 +42,7 @@ export const ActiveFilters = () => {
         {transaction.dateRange.end && (
           <FilterChip
             label={`📅 По ${new Date(
-              transaction.dateRange.end
+              transaction.dateRange.end,
             ).toLocaleDateString('ru-RU')}`}
             onRemove={() => removeFilter('endDate')}
             color="green"

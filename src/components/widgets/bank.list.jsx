@@ -13,7 +13,7 @@ export const BanksList = ({ onAddBank, onBankClick }) => {
 
   const totalAccounts = bank.bankList.reduce(
     (total, bankItem) => total + bankItem.accounts.length,
-    0
+    0,
   )
 
   return (

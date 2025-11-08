@@ -4,7 +4,7 @@ import SearchInput from './search.input'
 import Navigation from './navigation'
 
 const Header = () => {
-  const userName = 'Алексей'
+  const userName = 'Никита'
 
   return (
     <>
