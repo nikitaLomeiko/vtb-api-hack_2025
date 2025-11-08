@@ -1,10 +1,11 @@
 import { create } from 'zustand'
 
-export const useDepositStore = create((set) => ({
+export const useDepositStore = create((set, get) => ({
   deposits: [],
   isLoading: false,
   error: null,
 
+  // Моковые данные для выбора при создании
   mockDeposits: [
     {
       productId: 'deposit_1',
@@ -39,12 +40,15 @@ export const useDepositStore = create((set) => ({
     },
   ],
 
+  // Пользовательские вклады (созданные)
+  userDeposits: [],
+
   fetchDeposits: async () => {
     set({ isLoading: true, error: null })
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000))
       set({
-        deposits: useDepositStore.getState().mockDeposits,
+        deposits: get().mockDeposits,
         isLoading: false,
       })
     } catch (error) {
@@ -55,5 +59,34 @@ export const useDepositStore = create((set) => ({
     }
   },
 
-  setSelectedDeposit: (deposit) => set({ selectedDeposit: deposit }),
+  // Создание нового вклада
+  createDeposit: (depositData) => {
+    const newDeposit = {
+      id: `user_deposit_${Date.now()}`,
+      ...depositData,
+      createdAt: new Date().toISOString(),
+      currentAmount: depositData.amount,
+      status: 'active',
+    }
+
+    set((state) => ({
+      userDeposits: [newDeposit, ...state.userDeposits],
+    }))
+
+    return newDeposit
+  },
+
+  // Удаление вклада
+  deleteDeposit: (depositId) => {
+    set((state) => ({
+      userDeposits: state.userDeposits.filter(
+        (deposit) => deposit.id !== depositId
+      ),
+    }))
+  },
+
+  // Получение продукта по ID
+  getProductById: (productId) => {
+    return get().mockDeposits.find((product) => product.productId === productId)
+  },
 }))

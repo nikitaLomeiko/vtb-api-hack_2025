@@ -2,7 +2,7 @@ import { create } from 'zustand'
 
 export const useBank = create((set, get) => ({
   bank: {
-    total: 267233,
+    total: 3000000,
     bankList: [
       {
         name: 'Тинькофф',
