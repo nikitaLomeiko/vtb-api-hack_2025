@@ -1,11 +1,11 @@
 import { applyTheme, initializeTheme } from '@components/features/theme-changer'
 import { useSettings } from '@store/settings'
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 
 export const ThemeInitialProvider = ({ children }) => {
   const { setSettings } = useSettings()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const theme = initializeTheme()
     applyTheme(theme)
     setSettings({ theme })
