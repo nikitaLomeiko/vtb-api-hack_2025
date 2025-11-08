@@ -3,6 +3,7 @@ import { useAuth } from './hooks/use.auth'
 import EmailStage from './stages/email.stage'
 import CodeStage from './stages/code.stage'
 import PinStage from './stages/pin.stage'
+import { FloatingBallsProvider } from '@components/providers/floating.balls.provider'
 
 export const AuthFlow = ({ onAuthSuccess }) => {
   const {
@@ -86,23 +87,25 @@ export const AuthFlow = ({ onAuthSuccess }) => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      {/* Прогресс бар */}
-      <div className="bg-white shadow-sm">
-        <div className="max-w-md mx-auto px-6 py-4">
-          <div className="w-full bg-gray-200 rounded-full h-2">
-            <div
-              className="bg-blue-600 h-2 rounded-full transition-all duration-500"
-              style={{ width: `${getProgress()}%` }}
-            />
+    <FloatingBallsProvider ballCount={20}>
+      <div className="min-h-screen bg-[var(--bg-secondary)] flex flex-col">
+        {/* Прогресс бар */}
+        <div className="bg-[var(--bg-primary)] shadow-sm">
+          <div className="max-w-md mx-auto px-6 py-4">
+            <div className="w-full bg-[var(--bg-tertiary)] rounded-full h-2">
+              <div
+                className="bg-[var(--accent-primary)] h-2 rounded-full transition-all duration-500"
+                style={{ width: `${getProgress()}%` }}
+              />
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Контент этапа */}
-      <div className="flex-1 flex items-center justify-center py-8">
-        {renderStage()}
+        {/* Контент этапа */}
+        <div className="flex-1 flex items-center justify-center py-8">
+          {renderStage()}
+        </div>
       </div>
-    </div>
+    </FloatingBallsProvider>
   )
 }

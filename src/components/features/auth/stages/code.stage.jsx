@@ -55,15 +55,20 @@ const CodeStage = ({ onSubmit, onBack, isLoading, userEmail }) => {
   return (
     <div className="max-w-md mx-auto p-6">
       <div className="text-center mb-8">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">Проверка кода</h1>
-        <p className="text-gray-600">
-          Код отправлен на <span className="font-semibold">{userEmail}</span>
+        <h1 className="text-2xl font-bold text-[var(--text-primary)] mb-2">
+          Проверка кода
+        </h1>
+        <p className="text-[var(--text-secondary)]">
+          Код отправлен на{' '}
+          <span className="font-semibold text-[var(--text-primary)]">
+            {userEmail}
+          </span>
         </p>
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-4 text-center">
+          <label className="block text-sm font-medium text-[var(--text-primary)] mb-4 text-center">
             6-значный код
           </label>
           <div className="flex justify-center space-x-3 mb-2">
@@ -78,7 +83,7 @@ const CodeStage = ({ onSubmit, onBack, isLoading, userEmail }) => {
                 onChange={(e) => handleChange(index, e.target.value)}
                 onKeyDown={(e) => handleKeyDown(index, e)}
                 onPaste={handlePaste}
-                className="w-12 h-12 text-center text-xl font-semibold border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                className="w-12 h-12 text-center text-xl font-semibold border-2 border-[var(--border-primary)] rounded-lg focus:ring-2 focus:ring-[var(--accent-primary)] focus:border-[var(--accent-primary)] transition-colors bg-[var(--bg-primary)] text-[var(--text-primary)]"
                 disabled={isLoading}
               />
             ))}
@@ -96,14 +101,14 @@ const CodeStage = ({ onSubmit, onBack, isLoading, userEmail }) => {
             type="button"
             onClick={onBack}
             disabled={isLoading}
-            className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-xl font-medium hover:bg-gray-200 disabled:opacity-50 transition-colors"
+            className="flex-1 bg-[var(--bg-tertiary)] text-[var(--text-secondary)] py-3 px-4 rounded-xl font-medium hover:bg-[var(--border-primary)] disabled:opacity-50 transition-colors"
           >
             Назад
           </button>
           <button
             type="submit"
             disabled={!isValid || isLoading}
-            className="flex-1 bg-blue-600 text-white py-3 px-4 rounded-xl font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="flex-1 bg-[var(--accent-primary)] text-white py-3 px-4 rounded-xl font-medium hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {isLoading ? (
               <div className="flex items-center justify-center">

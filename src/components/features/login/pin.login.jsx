@@ -1,3 +1,4 @@
+import { FloatingBallsProvider } from '@components/providers/floating.balls.provider'
 import React, { useState, useRef, useEffect } from 'react'
 
 export const PinLogin = ({ onLoginSuccess }) => {
@@ -67,50 +68,53 @@ export const PinLogin = ({ onLoginSuccess }) => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="w-full max-w-xs">
-        <div className="text-center mb-8">
-          <h1 className="text-xl font-semibold text-gray-900 mb-2">
-            Введите пин-код
-          </h1>
-        </div>
-
-        <div className="mb-6">
-          <div className="flex justify-center space-x-3">
-            {[...Array(4)].map((_, index) => (
-              <input
-                key={index}
-                ref={(el) => (inputsRef.current[index] = el)}
-                type="password"
-                inputMode="numeric"
-                maxLength="1"
-                value={pin[index] || ''}
-                onChange={(e) => handlePinChange(index, e.target.value)}
-                onKeyDown={(e) => handleKeyDown(index, e)}
-                className={`
-                  w-12 h-12 text-center text-lg border rounded-lg
-                  focus:border-blue-500 focus:outline-none
-                  ${error ? 'border-red-500' : 'border-gray-300'}
-                  ${isLoading ? 'opacity-50' : ''}
-                `}
-                disabled={isLoading}
-              />
-            ))}
+    <FloatingBallsProvider ballCount={20}>
+      <div className="min-h-screen flex items-center justify-center p-4 bg-[var(--bg-primary)]">
+        <div className="w-full max-w-xs">
+          <div className="text-center mb-8">
+            <h1 className="text-xl font-semibold text-[var(--text-primary)] mb-2">
+              Введите пин-код
+            </h1>
           </div>
 
-          {error && (
-            <p className="text-red-500 text-sm text-center mt-3">{error}</p>
-          )}
-        </div>
+          <div className="mb-6">
+            <div className="flex justify-center space-x-3">
+              {[...Array(4)].map((_, index) => (
+                <input
+                  key={index}
+                  ref={(el) => (inputsRef.current[index] = el)}
+                  type="password"
+                  inputMode="numeric"
+                  maxLength="1"
+                  value={pin[index] || ''}
+                  onChange={(e) => handlePinChange(index, e.target.value)}
+                  onKeyDown={(e) => handleKeyDown(index, e)}
+                  className={`
+                  w-12 h-12 text-center text-lg border rounded-lg
+                  focus:border-[var(--accent-primary)] focus:outline-none
+                  bg-[var(--bg-primary)] text-[var(--text-primary)]
+                  ${error ? 'border-red-500' : 'border-[var(--border-primary)]'}
+                  ${isLoading ? 'opacity-50' : ''}
+                `}
+                  disabled={isLoading}
+                />
+              ))}
+            </div>
 
-        <button
-          onClick={() => handleSubmit()}
-          disabled={pin.length !== 4 || isLoading}
-          className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium disabled:opacity-50"
-        >
-          {isLoading ? '...' : 'Войти'}
-        </button>
+            {error && (
+              <p className="text-red-500 text-sm text-center mt-3">{error}</p>
+            )}
+          </div>
+
+          <button
+            onClick={() => handleSubmit()}
+            disabled={pin.length !== 4 || isLoading}
+            className="w-full bg-[var(--accent-primary)] text-white py-3 rounded-lg font-medium disabled:opacity-50 hover:bg-[var(--accent-hover)] transition-colors"
+          >
+            {isLoading ? '...' : 'Войти'}
+          </button>
+        </div>
       </div>
-    </div>
+    </FloatingBallsProvider>
   )
 }

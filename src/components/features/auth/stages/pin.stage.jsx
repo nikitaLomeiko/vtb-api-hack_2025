@@ -20,10 +20,10 @@ const PinStage = ({ onSubmit, onBack, isLoading }) => {
   return (
     <div className="max-w-md mx-auto p-6">
       <div className="text-center mb-8">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">
+        <h1 className="text-2xl font-bold text-[var(--text-primary)] mb-2">
           Создайте пин-код
         </h1>
-        <p className="text-gray-600">
+        <p className="text-[var(--text-secondary)]">
           Пин-код будет использоваться для быстрого входа в приложение
         </p>
       </div>
@@ -32,7 +32,7 @@ const PinStage = ({ onSubmit, onBack, isLoading }) => {
         <div>
           <label
             htmlFor="pin"
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-sm font-medium text-[var(--text-primary)] mb-2"
           >
             Пин-код (4 цифры)
           </label>
@@ -43,14 +43,14 @@ const PinStage = ({ onSubmit, onBack, isLoading }) => {
               id="pin"
               inputMode="numeric"
               maxLength="4"
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors pr-12"
+              className="w-full px-4 py-3 border border-[var(--border-primary)] rounded-xl focus:ring-2 focus:ring-[var(--accent-primary)] focus:border-[var(--accent-primary)] transition-colors pr-12 bg-[var(--bg-primary)] text-[var(--text-primary)]"
               placeholder="••••"
               disabled={isLoading}
             />
             <button
               type="button"
               onClick={() => setShowPin(!showPin)}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[var(--text-tertiary)] hover:text-[var(--text-secondary)]"
             >
               {showPin ? '🙈' : '👁️'}
             </button>
@@ -63,7 +63,7 @@ const PinStage = ({ onSubmit, onBack, isLoading }) => {
         <div>
           <label
             htmlFor="confirmPin"
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-sm font-medium text-[var(--text-primary)] mb-2"
           >
             Подтвердите пин-код
           </label>
@@ -73,7 +73,7 @@ const PinStage = ({ onSubmit, onBack, isLoading }) => {
             id="confirmPin"
             inputMode="numeric"
             maxLength="4"
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="w-full px-4 py-3 border border-[var(--border-primary)] rounded-xl focus:ring-2 focus:ring-[var(--accent-primary)] focus:border-[var(--accent-primary)] transition-colors bg-[var(--bg-primary)] text-[var(--text-primary)]"
             placeholder="••••"
             disabled={isLoading}
           />
@@ -91,8 +91,8 @@ const PinStage = ({ onSubmit, onBack, isLoading }) => {
               key={index}
               className={`w-4 h-4 rounded-full border-2 transition-colors ${
                 index < pin.length
-                  ? 'bg-blue-600 border-blue-600'
-                  : 'border-gray-300'
+                  ? 'bg-[var(--accent-primary)] border-[var(--accent-primary)]'
+                  : 'border-[var(--border-primary)]'
               }`}
             />
           ))}
@@ -103,14 +103,14 @@ const PinStage = ({ onSubmit, onBack, isLoading }) => {
             type="button"
             onClick={onBack}
             disabled={isLoading}
-            className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-xl font-medium hover:bg-gray-200 disabled:opacity-50 transition-colors"
+            className="flex-1 bg-[var(--bg-tertiary)] text-[var(--text-secondary)] py-3 px-4 rounded-xl font-medium hover:bg-[var(--border-primary)] disabled:opacity-50 transition-colors"
           >
             Назад
           </button>
           <button
             type="submit"
             disabled={!isValid || isLoading}
-            className="flex-1 bg-blue-600 text-white py-3 px-4 rounded-xl font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="flex-1 bg-[var(--accent-primary)] text-white py-3 px-4 rounded-xl font-medium hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {isLoading ? (
               <div className="flex items-center justify-center">

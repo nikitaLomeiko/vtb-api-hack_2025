@@ -19,10 +19,10 @@ const EmailStage = ({ onSubmit, isLoading, initialEmail }) => {
   return (
     <div className="max-w-md mx-auto p-6">
       <div className="text-center mb-8">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">
+        <h1 className="text-2xl font-bold text-[var(--text-primary)] mb-2">
           Вход в приложение
         </h1>
-        <p className="text-gray-600">
+        <p className="text-[var(--text-secondary)]">
           Введите ваш email для получения кода доступа
         </p>
       </div>
@@ -31,7 +31,7 @@ const EmailStage = ({ onSubmit, isLoading, initialEmail }) => {
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-sm font-medium text-[var(--text-primary)] mb-2"
           >
             Email
           </label>
@@ -39,7 +39,7 @@ const EmailStage = ({ onSubmit, isLoading, initialEmail }) => {
             {...register('email')}
             type="email"
             id="email"
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="w-full px-4 py-3 border border-[var(--border-primary)] rounded-xl focus:ring-2 focus:ring-[var(--accent-primary)] focus:border-[var(--accent-primary)] transition-colors bg-[var(--bg-primary)] text-[var(--text-primary)]"
             placeholder="your@email.com"
             disabled={isLoading}
           />
@@ -51,7 +51,7 @@ const EmailStage = ({ onSubmit, isLoading, initialEmail }) => {
         <button
           type="submit"
           disabled={!isValid || isLoading}
-          className="w-full bg-blue-600 text-white py-3 px-4 rounded-xl font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="w-full bg-[var(--accent-primary)] text-white py-3 px-4 rounded-xl font-medium hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           {isLoading ? (
             <div className="flex items-center justify-center">

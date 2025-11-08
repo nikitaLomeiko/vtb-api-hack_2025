@@ -10,13 +10,13 @@ import { ThemeInitialProvider } from '@components/providers/theme.initial.provid
 function App() {
   return (
     // <SoundProvider runAudio={audio}>
-    //   <AuthProvider onAuthSuccess={() => console.log('Успешная авторизация')}>
     <ThemeInitialProvider>
-      <Layout>
-        <Routing />
-      </Layout>
+      <AuthProvider onAuthSuccess={() => console.log('Успешная авторизация')}>
+        <Layout>
+          <Routing />
+        </Layout>
+      </AuthProvider>
     </ThemeInitialProvider>
-    //   </AuthProvider>
     // </SoundProvider>
   )
 }

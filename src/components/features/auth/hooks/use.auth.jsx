@@ -53,6 +53,7 @@ export const useAuth = () => {
     setIsLoading(true)
     await simulateApiCall(1000)
     console.log(`Пин-код создан: ${pin}`)
+    localStorage.setItem('user_pin', pin)
     // В реальном приложении здесь будет API call для сохранения пин-кода
     setIsLoading(false)
     return true
