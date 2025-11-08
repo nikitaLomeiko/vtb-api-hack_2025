@@ -4,9 +4,7 @@ export const useDepositStore = create((set) => ({
   deposits: [],
   isLoading: false,
   error: null,
-  selectedDeposit: null,
 
-  // Моковые данные
   mockDeposits: [
     {
       productId: 'deposit_1',
@@ -44,9 +42,7 @@ export const useDepositStore = create((set) => ({
   fetchDeposits: async () => {
     set({ isLoading: true, error: null })
     try {
-      // Имитация загрузки с задержкой
       await new Promise((resolve) => setTimeout(resolve, 1000))
-
       set({
         deposits: useDepositStore.getState().mockDeposits,
         isLoading: false,

@@ -5,6 +5,7 @@ import {
   ChartBarIcon,
 } from '@heroicons/react/24/outline'
 import { formatBalance } from '@lib/utils/bank.utils'
+import { useDepositStore } from '@store/deposit'
 
 export const DepositCard = () => {
   const { selectedDeposit, setSelectedDeposit } = useDepositStore()

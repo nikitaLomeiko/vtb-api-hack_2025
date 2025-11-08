@@ -8,13 +8,6 @@ export const Deposit = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 flex items-start">
-      <button
-        onClick={() => navigate(-1)}
-        className="ml-3 flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors mr-6"
-      >
-        <ArrowLeftIcon className="w-5 h-5" />
-        <span>Назад</span>
-      </button>
       <div className="container mx-auto px-4 max-w-4xl">
         {/* Хедер */}
         <div className="flex items-center mb-8">

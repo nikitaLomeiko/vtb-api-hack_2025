@@ -1,11 +1,11 @@
 import React from 'react'
 import { PlusIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom'
 import { useDeposits } from '@lib/hooks/use.deposits'
-import { useDepositStore } from '@store/deposit'
+import { formatBalance } from '@lib/utils/bank.utils'
 
 export const DepositList = () => {
   const { deposits, isLoading, error } = useDeposits()
-  const { selectedDeposit, setSelectedDeposit } = useDepositStore()
 
   if (isLoading) {
     return (
@@ -56,49 +56,44 @@ export const DepositList = () => {
         </button>
       </div>
 
-      {/* Контент */}
-      <div className="space-y-6">
-        {selectedDeposit ? (
-          // Детальный вид выбранного вклада
-          <DepositCard />
-        ) : (
-          // Список всех вкладов
-          <div className="space-y-4">
-            {deposits.map((deposit) => (
-              <div
-                key={deposit.productId}
-                onClick={() => setSelectedDeposit(deposit)}
-                className="bg-gray-50 rounded-2xl p-5 border border-gray-200 hover:border-blue-300 hover:shadow-sm transition-all cursor-pointer"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex-1">
-                    <h3 className="font-bold text-gray-900 text-lg mb-1">
-                      {deposit.productName}
-                    </h3>
-                    <p className="text-gray-600 text-sm mb-3 line-clamp-2">
-                      {deposit.description}
-                    </p>
-                    <div className="flex items-center space-x-4 text-sm">
-                      <span className="bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">
-                        {deposit.interestRate}% годовых
-                      </span>
-                      <span className="text-gray-500">
-                        {deposit.termMonths} мес
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="text-right ml-4">
-                    <div className="text-2xl font-bold text-blue-600">
-                      {deposit.interestRate}%
-                    </div>
-                    <div className="text-gray-500 text-xs">ставка</div>
-                  </div>
+      {/* Список вкладов как ссылок */}
+      <div className="space-y-4">
+        {deposits.map((deposit) => (
+          <Link
+            key={deposit.productId}
+            to={`/deposit/${deposit.productId}`}
+            className="block bg-gray-50 rounded-2xl p-5 border border-gray-200 hover:border-blue-300 hover:shadow-sm transition-all cursor-pointer"
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex-1">
+                <h3 className="font-bold text-gray-900 text-lg mb-1">
+                  {deposit.productName}
+                </h3>
+                <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                  {deposit.description}
+                </p>
+                <div className="flex items-center space-x-4 text-sm">
+                  <span className="bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">
+                    {deposit.interestRate}% годовых
+                  </span>
+                  <span className="text-gray-500">
+                    {deposit.termMonths} мес
+                  </span>
+                  <span className="text-gray-500">
+                    от {formatBalance(deposit.minAmount)} ₽
+                  </span>
                 </div>
               </div>
-            ))}
-          </div>
-        )}
+
+              <div className="text-right ml-4">
+                <div className="text-2xl font-bold text-blue-600">
+                  {deposit.interestRate}%
+                </div>
+                <div className="text-gray-500 text-xs">ставка</div>
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
 
       {deposits.length === 0 && !isLoading && (
