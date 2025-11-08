@@ -10,7 +10,7 @@ export const DeleteDepositButton = ({ depositId, depositName, onSuccess }) => {
   const handleDelete = async () => {
     setIsDeleting(true)
     try {
-      await new Promise((resolve) => setTimeout(resolve, 500)) // Имитация запроса
+      await new Promise((resolve) => setTimeout(resolve, 500))
       deleteDeposit(depositId)
       setIsConfirming(false)
       if (onSuccess) onSuccess()
@@ -23,12 +23,12 @@ export const DeleteDepositButton = ({ depositId, depositName, onSuccess }) => {
 
   if (isConfirming) {
     return (
-      <div className="flex items-center space-x-3 p-3 bg-red-50 rounded-lg border border-red-200">
+      <div className="flex items-center space-x-3 p-3 bg-(--bg-secondary) rounded-lg border border-(--border-primary)">
         <div className="flex-1">
-          <p className="text-red-800 text-sm font-medium">
+          <p className="text-(--text-primary) text-sm font-medium">
             Удалить "{depositName}"?
           </p>
-          <p className="text-red-600 text-xs mt-1">
+          <p className="text-(--text-secondary) text-xs mt-1">
             Это действие нельзя отменить
           </p>
         </div>
@@ -42,7 +42,7 @@ export const DeleteDepositButton = ({ depositId, depositName, onSuccess }) => {
           </button>
           <button
             onClick={() => setIsConfirming(false)}
-            className="bg-gray-300 hover:bg-gray-400 text-gray-700 px-3 py-1 rounded text-sm font-medium transition-colors"
+            className="bg-(--bg-secondary) hover:bg-(--bg-tertiary) text-(--text-primary) px-3 py-1 rounded text-sm font-medium transition-colors"
           >
             Нет
           </button>
@@ -54,7 +54,7 @@ export const DeleteDepositButton = ({ depositId, depositName, onSuccess }) => {
   return (
     <button
       onClick={() => setIsConfirming(true)}
-      className="flex items-center space-x-2 text-red-600 hover:text-red-700 hover:bg-red-50 px-3 py-2 rounded-lg transition-colors"
+      className="flex items-center space-x-2 text-red-600 hover:text-red-700 hover:bg-(--bg-secondary) px-3 py-2 rounded-lg transition-colors"
     >
       <TrashIcon className="w-4 h-4" />
       <span className="text-sm font-medium">Удалить</span>

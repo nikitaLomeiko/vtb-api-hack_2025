@@ -80,61 +80,23 @@ export const CreateDepositForm = () => {
   }
 
   return (
-    <div className="min-h-screen relative bg-gray-50 py-8 mb-[110px] md:mb-0">
-      <button
-        onClick={() => navigate('/deposit')}
-        className="hidden absolute left-5 top-8 md:flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors mr-6"
-      >
-        <svg
-          className="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
-        <span>Назад</span>
-      </button>
+    <div className="min-h-screen relative bg-(--bg-primary) py-8 mb-[110px] md:mb-0">
       <div className="container mx-auto px-4 max-w-2xl">
         <div className="flex items-center mb-8">
-          <button
-            onClick={() => navigate('/deposit')}
-            className="md:hidden flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors mr-6"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-            <span>Назад</span>
-          </button>
           <div className="md:ml-8">
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
+            <h1 className="text-2xl md:text-3xl font-bold text-(--text-primary)">
               Открытие вклада
             </h1>
-            <p className="text-gray-600 mt-2">
+            <p className="text-(--text-secondary) mt-2">
               Выберите подходящий тип вклада и укажите параметры
             </p>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div className="bg-(--bg-primary) rounded-2xl p-6 shadow-sm border border-(--border-primary)">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-3">
+              <label className="block text-sm font-medium text-(--text-primary) mb-3">
                 Тип вклада *
               </label>
               <div className="space-y-3">
@@ -144,26 +106,26 @@ export const CreateDepositForm = () => {
                     onClick={() => handleProductChange(product.productId)}
                     className={`p-4 border-2 rounded-xl cursor-pointer transition-all ${
                       formData.productId === product.productId
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-(--accent-primary) bg-(--bg-secondary)'
+                        : 'border-(--border-primary) hover:border-(--border-secondary)'
                     }`}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
-                        <h3 className="font-semibold text-gray-900">
+                        <h3 className="font-semibold text-(--text-primary)">
                           {product.productName}
                         </h3>
-                        <p className="text-gray-600 text-sm mt-1">
+                        <p className="text-(--text-secondary) text-sm mt-1">
                           {product.description}
                         </p>
                         <div className="flex items-center space-x-4 mt-2 text-sm">
                           <span className="bg-green-100 text-green-700 px-2 py-1 rounded-full">
                             {product.interestRate}% годовых
                           </span>
-                          <span className="text-gray-500">
+                          <span className="text-(--text-secondary)">
                             {product.termMonths} мес
                           </span>
-                          <span className="text-gray-500">
+                          <span className="text-(--text-secondary)">
                             от {formatBalance(product.minAmount)} ₽
                           </span>
                         </div>
@@ -172,8 +134,8 @@ export const CreateDepositForm = () => {
                         <div
                           className={`w-5 h-5 rounded-full border-2 ${
                             formData.productId === product.productId
-                              ? 'bg-blue-500 border-blue-500'
-                              : 'border-gray-300'
+                              ? 'bg-(--accent-primary) border-(--accent-primary)'
+                              : 'border-(--border-primary)'
                           }`}
                         ></div>
                       </div>
@@ -184,32 +146,38 @@ export const CreateDepositForm = () => {
             </div>
 
             {selectedProduct && (
-              <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
-                <h4 className="font-semibold text-blue-900 mb-3">
+              <div className="bg-(--bg-secondary) rounded-xl p-4 border border-(--border-primary)">
+                <h4 className="font-semibold text-(--text-primary) mb-3">
                   Условия выбранного вклада
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                   <div>
-                    <span className="text-blue-700">Минимальная сумма:</span>
-                    <span className="text-blue-900 font-medium ml-2">
+                    <span className="text-(--text-secondary)">
+                      Минимальная сумма:
+                    </span>
+                    <span className="text-(--text-primary) font-medium ml-2">
                       {formatBalance(selectedProduct.minAmount)} ₽
                     </span>
                   </div>
                   <div>
-                    <span className="text-blue-700">Максимальная сумма:</span>
-                    <span className="text-blue-900 font-medium ml-2">
+                    <span className="text-(--text-secondary)">
+                      Максимальная сумма:
+                    </span>
+                    <span className="text-(--text-primary) font-medium ml-2">
                       {formatBalance(selectedProduct.maxAmount)} ₽
                     </span>
                   </div>
                   <div>
-                    <span className="text-blue-700">Процентная ставка:</span>
-                    <span className="text-blue-900 font-medium ml-2">
+                    <span className="text-(--text-secondary)">
+                      Процентная ставка:
+                    </span>
+                    <span className="text-(--text-primary) font-medium ml-2">
                       {selectedProduct.interestRate}%
                     </span>
                   </div>
                   <div>
-                    <span className="text-blue-700">Срок:</span>
-                    <span className="text-blue-900 font-medium ml-2">
+                    <span className="text-(--text-secondary)">Срок:</span>
+                    <span className="text-(--text-primary) font-medium ml-2">
                       {selectedProduct.termMonths} месяцев
                     </span>
                   </div>
@@ -220,7 +188,7 @@ export const CreateDepositForm = () => {
             <div>
               <label
                 htmlFor="amount"
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className="block text-sm font-medium text-(--text-primary) mb-2"
               >
                 Сумма вклада *
               </label>
@@ -233,17 +201,17 @@ export const CreateDepositForm = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, amount: e.target.value })
                   }
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:text-gray-500 disabled:border-gray-200 disabled:cursor-not-allowed"
+                  className="w-full px-4 py-3 border border-(--border-primary) rounded-lg focus:ring-2 focus:ring-(--accent-primary) focus:border-(--accent-primary) bg-(--bg-primary) text-(--text-primary) disabled:bg-(--bg-secondary) disabled:text-(--text-tertiary) disabled:border-(--border-primary) disabled:cursor-not-allowed"
                   placeholder="Введите сумму"
                   min={selectedProduct?.minAmount || 0}
                   max={selectedProduct?.maxAmount || 10000000}
                 />
-                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-(--text-secondary)">
                   ₽
                 </div>
               </div>
               {selectedProduct && (
-                <p className="text-sm text-gray-500 mt-2">
+                <p className="text-sm text-(--text-secondary) mt-2">
                   Доступный диапазон: {formatBalance(selectedProduct.minAmount)}{' '}
                   - {formatBalance(selectedProduct.maxAmount)} ₽
                 </p>
@@ -253,7 +221,7 @@ export const CreateDepositForm = () => {
             <div>
               <label
                 htmlFor="termMonths"
-                className="block text-sm font-medium text-gray-700 mb-2"
+                className="block text-sm font-medium text-(--text-primary) mb-2"
               >
                 Срок вклада *
               </label>
@@ -266,13 +234,13 @@ export const CreateDepositForm = () => {
                 onChange={(e) =>
                   setFormData({ ...formData, termMonths: e.target.value })
                 }
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:text-gray-500 disabled:border-gray-200 disabled:cursor-not-allowed"
+                className="w-full px-4 py-3 border border-(--border-primary) rounded-lg focus:ring-2 focus:ring-(--accent-primary) focus:border-(--accent-primary) bg-(--bg-primary) text-(--text-primary) disabled:bg-(--bg-secondary) disabled:text-(--text-tertiary) disabled:border-(--border-primary) disabled:cursor-not-allowed"
                 placeholder="Введите срок в месяцах"
                 min={selectedProduct?.termMonths || 1}
                 max={selectedProduct?.termMonths || 60}
               />
               {selectedProduct && (
-                <p className="text-sm text-gray-500 mt-2">
+                <p className="text-sm text-(--text-secondary) mt-2">
                   Фиксированный срок: {selectedProduct.termMonths} месяцев
                 </p>
               )}
@@ -281,7 +249,7 @@ export const CreateDepositForm = () => {
             <button
               type="submit"
               disabled={isSubmitting || !selectedProduct}
-              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-4 rounded-xl font-semibold text-lg transition-colors"
+              className="w-full bg-(--accent-primary) hover:bg-(--accent-hover) disabled:bg-(--text-tertiary) disabled:cursor-not-allowed text-white py-4 rounded-xl font-semibold text-lg transition-colors"
             >
               {isSubmitting ? 'Создание...' : 'Открыть вклад'}
             </button>
