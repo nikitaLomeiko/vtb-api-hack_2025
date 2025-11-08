@@ -22,30 +22,30 @@ export const TransactionHistory = () => {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-      <div className="px-6 py-4 border-b border-gray-200">
-        <h2 className="text-lg font-semibold text-gray-800">
+    <div className="bg-[var(--bg-secondary)] rounded-lg shadow-sm border border-[var(--border-primary)]">
+      <div className="px-6 py-4 border-b border-[var(--border-primary)]">
+        <h2 className="text-lg font-semibold text-[var(--text-primary)]">
           История транзакций
         </h2>
       </div>
 
-      <div className="divide-y divide-gray-100">
+      <div className="divide-y divide-[var(--border-primary)]">
         {transaction.tansactionList.length === 0 ? (
-          <div className="px-6 py-8 text-center text-gray-500">
+          <div className="px-6 py-8 text-center text-[var(--text-secondary)]">
             Нет транзакций
           </div>
         ) : (
           transaction.tansactionList.map((trans) => (
             <div
               key={trans.transactionId}
-              className="px-6 py-4 hover:bg-gray-50 transition-colors"
+              className="px-6 py-4 hover:bg-[var(--bg-tertiary)] transition-colors"
             >
               <div className="flex justify-between items-start mb-2">
                 <div className="flex-1">
-                  <h3 className="font-medium text-gray-900">
+                  <h3 className="font-medium text-[var(--text-primary)]">
                     {trans.transactionInformation}
                   </h3>
-                  <p className="text-sm text-gray-500 mt-1">
+                  <p className="text-sm text-[var(--text-secondary)] mt-1">
                     {formatDate(trans.bookingDateTime)}
                   </p>
                   <div className="flex items-center gap-2 mt-1">
@@ -58,7 +58,7 @@ export const TransactionHistory = () => {
                     >
                       {trans.status === 'Booked' ? 'Проведена' : 'В обработке'}
                     </span>
-                    <span className="text-xs text-gray-400">
+                    <span className="text-xs text-[var(--text-tertiary)]">
                       {trans.bankTransactionCode.code}
                     </span>
                   </div>
@@ -78,7 +78,7 @@ export const TransactionHistory = () => {
                       trans.creditDebitIndicator
                     )}
                   </div>
-                  <div className="text-xs text-gray-400 mt-1">
+                  <div className="text-xs text-[var(--text-tertiary)] mt-1">
                     {trans.accountId}
                   </div>
                 </div>

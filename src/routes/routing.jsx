@@ -5,6 +5,7 @@ import { Deposit } from '@pages/deposit.page'
 import { DepositDetails } from '@pages/deposit-details.page'
 import { CreateDepositForm } from '@components/features/deposit/create-deposit'
 import { TransactionForm } from '@components/features/transactions'
+import { SettingsPage } from '@pages/settings-page/settings.page'
 
 export const Routing = () => {
   return (
@@ -15,6 +16,7 @@ export const Routing = () => {
       <Route path="/deposit/:id" element={<DepositDetails />} />
       <Route path="/deposit/create" element={<CreateDepositForm />} />
       <Route path="/transaction" element={<TransactionForm />} />
+      <Route path="/settings/" element={<SettingsPage />} />
     </Routes>
   )
 }

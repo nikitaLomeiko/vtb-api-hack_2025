@@ -16,14 +16,14 @@ export const TransactionFilter = () => {
     transaction.searchQuery
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 mb-8 overflow-hidden">
+    <div className="bg-[var(--bg-secondary)] rounded-2xl shadow-sm border border-[var(--border-primary)] mb-8 overflow-hidden">
       {/* Заголовок фильтров */}
       <div
-        className="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+        className="flex items-center justify-between p-6 cursor-pointer hover:bg-[var(--bg-tertiary)] transition-colors"
         onClick={toggleFilterExpanded}
       >
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+          <div className="w-10 h-10 bg-gradient-to-br from-[var(--accent-primary)] to-[var(--accent-secondary)] rounded-xl flex items-center justify-center">
             <svg
               className="w-5 h-5 text-white"
               fill="none"
@@ -39,20 +39,22 @@ export const TransactionFilter = () => {
             </svg>
           </div>
           <div>
-            <h3 className="font-semibold text-gray-900">Фильтры и поиск</h3>
-            <p className="text-sm text-gray-500">
+            <h3 className="font-semibold text-[var(--text-primary)]">
+              Фильтры и поиск
+            </h3>
+            <p className="text-sm text-[var(--text-secondary)]">
               Уточните параметры отображения
             </p>
           </div>
         </div>
         <div className="flex items-center gap-3">
           {hasActiveFilters && (
-            <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+            <span className="px-3 py-1 bg-[var(--accent-secondary)]/20 text-[var(--text-secondary)] rounded-full text-sm font-medium">
               Активные фильтры
             </span>
           )}
           <svg
-            className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
+            className={`w-5 h-5 text-[var(--text-tertiary)] transition-transform duration-200 ${
               transaction.isFiltersExpanded ? 'rotate-180' : ''
             }`}
             fill="none"
@@ -71,10 +73,10 @@ export const TransactionFilter = () => {
 
       {/* Расширенная панель фильтров */}
       {transaction.isFiltersExpanded && (
-        <div className="border-t border-gray-200 p-6 space-y-6">
+        <div className="border-t border-[var(--border-primary)] p-6 space-y-6">
           {/* Тип операции */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-3">
+            <label className="block text-sm font-medium text-[var(--text-primary)] mb-3">
               Тип операции
             </label>
             <div className="flex flex-wrap gap-2">
@@ -89,7 +91,7 @@ export const TransactionFilter = () => {
                   className={`px-4 py-2.5 rounded-xl font-medium transition-all duration-200 flex items-center gap-2 ${
                     transaction.activeFilter === key
                       ? `bg-${color}-600 text-white shadow-sm`
-                      : 'text-gray-600 border border-gray-300 hover:border-gray-400 hover:shadow-sm'
+                      : 'text-[var(--text-secondary)] border border-[var(--border-primary)] hover:border-[var(--border-secondary)] hover:shadow-sm'
                   }`}
                 >
                   {transaction.activeFilter === key && (
@@ -117,7 +119,7 @@ export const TransactionFilter = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Поиск */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">
                 Поиск по описанию
               </label>
               <div className="relative">
@@ -126,10 +128,10 @@ export const TransactionFilter = () => {
                   placeholder="Введите название транзакции..."
                   value={transaction.searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                  className="w-full pl-11 pr-4 py-3 border border-[var(--border-primary)] rounded-xl focus:ring-2 focus:ring-[var(--accent-primary)] focus:border-[var(--accent-primary)] transition-colors bg-[var(--bg-primary)] text-[var(--text-primary)]"
                 />
                 <svg
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 text-[var(--text-tertiary)]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -146,7 +148,7 @@ export const TransactionFilter = () => {
 
             {/* Фильтр по датам */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-[var(--text-primary)] mb-2">
                 Период
               </label>
               <div className="grid grid-cols-2 gap-3">
@@ -155,9 +157,9 @@ export const TransactionFilter = () => {
                     type="date"
                     value={transaction.dateRange.start}
                     onChange={(e) => dateChange('start', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    className="w-full px-4 py-3 border border-[var(--border-primary)] rounded-xl focus:ring-2 focus:ring-[var(--accent-primary)] focus:border-[var(--accent-primary)] transition-colors bg-[var(--bg-primary)] text-[var(--text-primary)]"
                   />
-                  <span className="absolute -top-2 left-3 px-1 bg-white text-xs text-gray-500">
+                  <span className="absolute -top-2 left-3 px-1 bg-[var(--bg-secondary)] text-xs text-[var(--text-tertiary)]">
                     С
                   </span>
                 </div>
@@ -166,9 +168,9 @@ export const TransactionFilter = () => {
                     type="date"
                     value={transaction.dateRange.end}
                     onChange={(e) => dateChange('end', e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    className="w-full px-4 py-3 border border-[var(--border-primary)] rounded-xl focus:ring-2 focus:ring-[var(--accent-primary)] focus:border-[var(--accent-primary)] transition-colors bg-[var(--bg-primary)] text-[var(--text-primary)]"
                   />
-                  <span className="absolute -top-2 left-3 px-1 bg-white text-xs text-gray-500">
+                  <span className="absolute -top-2 left-3 px-1 bg-[var(--bg-secondary)] text-xs text-[var(--text-tertiary)]">
                     По
                   </span>
                 </div>

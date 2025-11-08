@@ -6,10 +6,22 @@ export const StatCard = ({
   isCurrency = false,
 }) => {
   const colorClasses = {
-    blue: { bg: 'bg-blue-100', text: 'text-blue-600' },
-    green: { bg: 'bg-green-100', text: 'text-green-600' },
-    red: { bg: 'bg-red-100', text: 'text-red-600' },
-    purple: { bg: 'bg-purple-100', text: 'text-purple-600' },
+    blue: {
+      bg: 'bg-[var(--accent-primary)]/20',
+      text: 'text-[var(--accent-primary)]',
+    },
+    green: {
+      bg: 'bg-green-100',
+      text: 'text-green-600',
+    },
+    red: {
+      bg: 'bg-red-100',
+      text: 'text-red-600',
+    },
+    purple: {
+      bg: 'bg-[var(--accent-secondary)]/20',
+      text: 'text-[var(--accent-secondary)]',
+    },
   }
 
   const formatValue = (val) => {
@@ -27,17 +39,19 @@ export const StatCard = ({
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm p-6 border border-gray-100">
+    <div className="bg-[var(--bg-secondary)] rounded-2xl shadow-sm p-6 border border-[var(--border-primary)]">
       <div className="flex items-center justify-between">
         <div className="min-w-0 flex-1">
-          <p className="text-sm font-medium text-gray-500 truncate">{title}</p>
+          <p className="text-sm font-medium text-[var(--text-secondary)] truncate">
+            {title}
+          </p>
           <p
             className={`text-2xl font-bold mt-1 truncate ${
               isCurrency
                 ? value >= 0
                   ? 'text-green-600'
                   : 'text-red-600'
-                : 'text-gray-900'
+                : 'text-[var(--text-primary)]'
             }`}
           >
             {formatValue(value)}

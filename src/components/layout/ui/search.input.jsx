@@ -85,13 +85,13 @@ const SearchInput = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={handleEscapeKey}
               placeholder="Поиск операций, услуг..."
-              className="flex-1 px-4 py-2.5 text-gray-800 placeholder-gray-500 focus:outline-none text-sm w-full"
+              className="flex-1 px-4 py-2.5 text-[var(--text-primary)] placeholder-[var(--text-tertiary)] focus:outline-none text-sm w-full"
             />
             <button
               type="submit"
-              className="p-2 hover:bg-gray-100 transition-colors"
+              className="p-2 hover:bg-[var(--bg-tertiary)] transition-colors"
             >
-              <MagnifyingGlassIcon className="h-4 w-4 text-gray-600" />
+              <MagnifyingGlassIcon className="h-4 w-4 text-[var(--text-secondary)]" />
             </button>
           </form>
         </div>
@@ -132,16 +132,18 @@ const SearchInput = () => {
           />
 
           {/* Контейнер попапа */}
-          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-sm transform transition-all duration-300 scale-100 opacity-100">
+          <div className="relative bg-[var(--bg-primary)] rounded-2xl shadow-2xl w-full max-w-sm transform transition-all duration-300 scale-100 opacity-100 border border-[var(--border-primary)]">
             {/* Заголовок и кнопка закрытия */}
-            <div className="flex items-center justify-between p-4 border-b border-gray-100">
-              <h3 className="text-lg font-semibold text-gray-800">Поиск</h3>
+            <div className="flex items-center justify-between p-4 border-b border-[var(--border-primary)]">
+              <h3 className="text-lg font-semibold text-[var(--text-primary)]">
+                Поиск
+              </h3>
               <button
-                className="p-1 hover:bg-gray-100 rounded-full transition-colors"
+                className="p-1 hover:bg-[var(--bg-tertiary)] rounded-full transition-colors"
                 onClick={handleCloseSearch}
                 aria-label="Закрыть поиск"
               >
-                <XMarkIcon className="h-5 w-5 text-gray-600" />
+                <XMarkIcon className="h-5 w-5 text-[var(--text-secondary)]" />
               </button>
             </div>
 
@@ -155,18 +157,18 @@ const SearchInput = () => {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={handleEscapeKey}
                   placeholder="Что ищем?"
-                  className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 pr-10 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base transition-all duration-200"
+                  className="w-full bg-[var(--bg-tertiary)] border border-[var(--border-primary)] rounded-xl px-4 py-3 pr-10 text-[var(--text-primary)] placeholder-[var(--text-tertiary)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] focus:border-transparent text-base transition-all duration-200"
                   autoFocus
                 />
                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                  <MagnifyingGlassIcon className="h-4 w-4 text-gray-400" />
+                  <MagnifyingGlassIcon className="h-4 w-4 text-[var(--text-tertiary)]" />
                 </div>
               </div>
 
               <button
                 type="submit"
                 disabled={!searchQuery.trim()}
-                className="w-full bg-blue-600 text-white py-3 rounded-xl font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:bg-blue-700 active:scale-95"
+                className="w-full bg-[var(--accent-primary)] text-white py-3 rounded-xl font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:bg-[var(--accent-hover)] active:scale-95"
               >
                 Найти
               </button>
@@ -174,7 +176,7 @@ const SearchInput = () => {
 
             {/* Быстрые подсказки */}
             <div className="px-4 pb-4">
-              <h4 className="text-sm font-medium text-gray-500 mb-2">
+              <h4 className="text-sm font-medium text-[var(--text-secondary)] mb-2">
                 Частые запросы
               </h4>
               <div className="flex flex-wrap gap-2">
@@ -185,7 +187,7 @@ const SearchInput = () => {
                       setSearchQuery(item)
                       inputRef.current?.focus()
                     }}
-                    className="px-3 py-2 bg-gray-100 rounded-lg text-gray-700 text-sm hover:bg-gray-200 transition-colors duration-200"
+                    className="px-3 py-2 bg-[var(--bg-tertiary)] rounded-lg text-[var(--text-primary)] text-sm hover:bg-[var(--border-primary)] transition-colors duration-200"
                   >
                     {item}
                   </button>

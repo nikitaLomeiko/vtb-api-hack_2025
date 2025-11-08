@@ -4,7 +4,7 @@ import Footer from './ui/footer'
 
 export const Layout = ({ children }) => {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-white-50 flex flex-col">
       <Header />
 
       <main

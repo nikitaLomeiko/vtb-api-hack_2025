@@ -1,0 +1,235 @@
+/* Default Light Theme */
+[data-theme='light'] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-tertiary: #94a3b8;
+  --border-primary: #e2e8f0;
+  --border-secondary: #cbd5e1;
+  --accent-primary: #4f46e5;
+  --accent-secondary: #6366f1;
+  --accent-hover: #4338ca;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --border-primary: #475569;
+  --border-secondary: #64748b;
+  --accent-primary: #5061fc;
+  --accent-secondary: #4866ff;
+  --accent-hover: #6366f1;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25), 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.25), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='nightowl'] {
+  --bg-primary: #011627;
+  --bg-secondary: #0d293e;
+  --bg-tertiary: #1d3b53;
+  --text-primary: #d6deeb;
+  --text-secondary: #b4c7e0;
+  --text-tertiary: #7c8da5;
+  --border-primary: #1d3b53;
+  --border-secondary: #2d4b63;
+  --accent-primary: #046390;
+  --accent-secondary: #065783;
+  --accent-hover: #38bdf8;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.35), 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme='sunset'] {
+  --bg-primary: #1c1917;
+  --bg-secondary: #292524;
+  --bg-tertiary: #44403c;
+  --text-primary: #fafaf9;
+  --text-secondary: #e7e5e4;
+  --text-tertiary: #a8a29e;
+  --border-primary: #57534e;
+  --border-secondary: #78716c;
+  --accent-primary: #fb923c;
+  --accent-secondary: #fdba74;
+  --accent-hover: #f97316;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='forest'] {
+  --bg-primary: #052e16;
+  --bg-secondary: #14532d;
+  --bg-tertiary: #166534;
+  --text-primary: #f0fdf4;
+  --text-secondary: #dcfce7;
+  --text-tertiary: #86efac;
+  --border-primary: #15803d;
+  --border-secondary: #16a34a;
+  --accent-primary: #309254;
+  --accent-secondary: #2cef74;
+  --accent-hover: #22c55e;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.35), 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme='ocean'] {
+  --bg-primary: #0c4a6e;
+  --bg-secondary: #155e75;
+  --bg-tertiary: #0e7490;
+  --text-primary: #f0fdfd;
+  --text-secondary: #cffafe;
+  --text-tertiary: #a5f3fc;
+  --border-primary: #0891b2;
+  --border-secondary: #06b6d4;
+  --accent-primary: #22d3ee;
+  --accent-secondary: #67e8f9;
+  --accent-hover: #06b6d4;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='lavender'] {
+  --bg-primary: #faf5ff;
+  --bg-secondary: #f3e8ff;
+  --bg-tertiary: #e9d5ff;
+  --text-primary: #581c87;
+  --text-secondary: #7e22ce;
+  --text-tertiary: #a855f7;
+  --border-primary: #d8b4fe;
+  --border-secondary: #c084fc;
+  --accent-primary: #a855f7;
+  --accent-secondary: #c084fc;
+  --accent-hover: #9333ea;
+  --shadow: 0 1px 3px 0 rgba(168, 85, 247, 0.15), 0 1px 2px 0 rgba(168, 85, 247, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(168, 85, 247, 0.15), 0 4px 6px -2px rgba(168, 85, 247, 0.1);
+}
+
+[data-theme='coffee'] {
+  --bg-primary: #292524;
+  --bg-secondary: #44403c;
+  --bg-tertiary: #57534e;
+  --text-primary: #fafaf9;
+  --text-secondary: #e7e5e4;
+  --text-tertiary: #d6d3d1;
+  --border-primary: #78716c;
+  --border-secondary: #a8a29e;
+  --accent-primary: #d97706;
+  --accent-secondary: #f59e0b;
+  --accent-hover: #b45309;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.35), 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme='midnight'] {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #171717;
+  --bg-tertiary: #262626;
+  --text-primary: #fafafa;
+  --text-secondary: #d4d4d4;
+  --text-tertiary: #a3a3a3;
+  --border-primary: #404040;
+  --border-secondary: #525252;
+  --accent-primary: #3b82f6;
+  --accent-secondary: #60a5fa;
+  --accent-hover: #2563eb;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='rose'] {
+  --bg-primary: #fff1f2;
+  --bg-secondary: #ffe4e6;
+  --bg-tertiary: #fecdd3;
+  --text-primary: #881337;
+  --text-secondary: #be123c;
+  --text-tertiary: #e11d48;
+  --border-primary: #fda4af;
+  --border-secondary: #fb7185;
+  --accent-primary: #e11d48;
+  --accent-secondary: #f43f5e;
+  --accent-hover: #be123c;
+  --shadow: 0 1px 3px 0 rgba(225, 29, 72, 0.15), 0 1px 2px 0 rgba(225, 29, 72, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(225, 29, 72, 0.15), 0 4px 6px -2px rgba(225, 29, 72, 0.1);
+}
+
+/* Base styles using CSS variables */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Utility classes using CSS variables */
+.bg-primary {
+  background-color: var(--bg-primary);
+}
+
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.bg-tertiary {
+  background-color: var(--bg-tertiary);
+}
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.border-primary {
+  border-color: var(--border-primary);
+}
+
+.border-secondary {
+  border-color: var(--border-secondary);
+}
+
+.border-accent {
+  border-color: var(--accent-primary);
+}
+
+.accent-primary {
+  background-color: var(--accent-primary);
+}
+
+.accent-secondary {
+  background-color: var(--accent-secondary);
+}
+
+.text-accent {
+  color: var(--accent-primary);
+}
+
+.shadow-regular {
+  box-shadow: var(--shadow);
+}
+
+.shadow-large {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Hover states */
+.hover-accent:hover {
+  background-color: var(--accent-hover);
+}
+
+.hover-bg-secondary:hover {
+  background-color: var(--bg-secondary);
+}

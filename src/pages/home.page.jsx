@@ -16,7 +16,7 @@ export const HomePage = () => {
       <BalanceSummaryCard onTransfer={handleTransaction} />
       <DenominationList />
       <BanksList />
-      <SlotMachine />
+      {/* <SlotMachine /> */}
     </div>
   )
 }
