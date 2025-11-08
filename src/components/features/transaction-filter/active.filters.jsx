@@ -11,13 +11,19 @@ export const ActiveFilters = () => {
     transaction.searchQuery
 
   if (!hasActiveFilters) {
-    return <div className="text-sm text-gray-500">Фильтры не применены</div>
+    return (
+      <div className="text-sm text-[var(--text-secondary)]">
+        Фильтры не применены
+      </div>
+    )
   }
 
   return (
-    <div className="flex flex-col pb-5 sm:flex-row justify-between items-start sm:items-center gap-4 pt-4 border-t border-gray-200">
+    <div className="flex flex-col pb-5 sm:flex-row justify-between items-start sm:items-center gap-4 pt-4 border-t border-[var(--border-primary)]">
       <div className="flex flex-wrap items-center gap-2">
-        <span className="text-sm text-gray-600 font-medium">Применено:</span>
+        <span className="text-sm text-[var(--text-secondary)] font-medium">
+          Применено:
+        </span>
 
         {transaction.activeFilter !== 'all' && (
           <FilterChip
@@ -32,7 +38,7 @@ export const ActiveFilters = () => {
         {transaction.dateRange.start && (
           <FilterChip
             label={`📅 С ${new Date(
-              transaction.dateRange.start,
+              transaction.dateRange.start
             ).toLocaleDateString('ru-RU')}`}
             onRemove={() => removeFilter('startDate')}
             color="green"
@@ -42,7 +48,7 @@ export const ActiveFilters = () => {
         {transaction.dateRange.end && (
           <FilterChip
             label={`📅 По ${new Date(
-              transaction.dateRange.end,
+              transaction.dateRange.end
             ).toLocaleDateString('ru-RU')}`}
             onRemove={() => removeFilter('endDate')}
             color="green"
@@ -61,7 +67,7 @@ export const ActiveFilters = () => {
       <div className="flex gap-3">
         <button
           onClick={clearFilters}
-          className="px-4 py-2.5 text-gray-600 border border-gray-300 rounded-xl hover:border-gray-400 hover:bg-gray-50 transition-colors font-medium flex items-center gap-2"
+          className="px-4 py-2.5 text-[var(--text-secondary)] border border-[var(--border-primary)] rounded-xl hover:border-[var(--border-secondary)] hover:bg-[var(--bg-tertiary)] transition-colors font-medium flex items-center gap-2"
         >
           <svg
             className="w-4 h-4"
@@ -79,7 +85,7 @@ export const ActiveFilters = () => {
           Сбросить все
         </button>
 
-        <button className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-200 flex items-center gap-2 shadow-sm hover:shadow-md">
+        <button className="px-6 py-2.5 bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] text-white rounded-xl font-medium hover:from-[var(--accent-hover)] hover:to-[var(--accent-secondary)] transition-all duration-200 flex items-center gap-2 shadow-sm hover:shadow-md">
           <svg
             className="w-4 h-4"
             fill="none"

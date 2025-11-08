@@ -7,21 +7,29 @@ export const DenominationList = () => {
     const denominations = [
       {
         value: 5000,
-        color: 'bg-purple-100 text-purple-800 border border-purple-200',
+        color:
+          'bg-[var(--bg-tertiary)] text-[var(--accent-secondary)] border border-[var(--border-primary)]',
       },
       {
         value: 2000,
-        color: 'bg-blue-100 text-blue-800 border border-blue-200',
+        color:
+          'bg-[var(--bg-tertiary)] text-[var(--accent-primary)] border border-[var(--border-primary)]',
       },
       {
         value: 1000,
-        color: 'bg-green-100 text-green-800 border border-green-200',
+        color:
+          'bg-[var(--bg-tertiary)] text-green-600 border border-[var(--border-primary)]',
       },
       {
         value: 500,
-        color: 'bg-yellow-100 text-yellow-800 border border-yellow-200',
+        color:
+          'bg-[var(--bg-tertiary)] text-yellow-600 border border-[var(--border-primary)]',
       },
-      { value: 100, color: 'bg-gray-100 text-gray-800 border border-gray-200' },
+      {
+        value: 100,
+        color:
+          'bg-[var(--bg-tertiary)] text-[var(--text-secondary)] border border-[var(--border-primary)]',
+      },
     ]
 
     let remainingBalance = balance
@@ -40,8 +48,8 @@ export const DenominationList = () => {
   const denominations = calculateDenominations(bank.total)
 
   return (
-    <div className="my-5 border-t border-gray-100">
-      <p className="text-gray-500 text-sm font-medium mb-4 text-center">
+    <div className="my-5 ">
+      <p className="text-[var(--text-secondary)] text-sm font-medium mb-4 text-center">
         Номиналы в обороте
       </p>
       <div className="flex justify-center flex-wrap gap-3">

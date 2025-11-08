@@ -69,7 +69,7 @@ const Navigation = () => {
                 ${
                   isActive
                     ? 'bg-white/20 text-white'
-                    : 'text-blue-100 hover:bg-white/10 hover:text-white'
+                    : 'text-white/80 hover:bg-white/10 hover:text-white'
                 }
               `}
             >
@@ -84,7 +84,7 @@ const Navigation = () => {
 
   // Мобильная версия - тулбар внизу экрана
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 md:hidden z-90">
+    <nav className="fixed bottom-0 left-0 right-0 bg-[var(--bg-primary)] border-t border-[var(--border-primary)] md:hidden z-90 shadow-lg">
       <div className="flex justify-around items-center py-2">
         {navItems.map((item) => {
           const IconComponent = item.icon
@@ -98,15 +98,15 @@ const Navigation = () => {
                 flex flex-col items-center justify-center py-2 px-3 rounded-xl transition-all duration-200
                 ${
                   isActive
-                    ? 'text-blue-600'
-                    : 'text-gray-500 hover:text-gray-700'
+                    ? 'text-[var(--accent-primary)]'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                 }
               `}
             >
               <div
                 className={`
                 p-2 rounded-full transition-colors duration-200
-                ${isActive ? 'bg-blue-50' : ''}
+                ${isActive ? 'bg-[var(--bg-tertiary)]' : ''}
               `}
               >
                 <IconComponent className="h-6 w-6" />
@@ -122,7 +122,7 @@ const Navigation = () => {
 
               {/* Индикатор активного элемента */}
               {isActive && (
-                <div className="absolute top-0 w-1 h-1 bg-blue-600 rounded-full"></div>
+                <div className="absolute top-0 w-1 h-1 bg-[var(--accent-primary)] rounded-full"></div>
               )}
             </button>
           )
@@ -130,7 +130,7 @@ const Navigation = () => {
       </div>
 
       {/* Безопасная зона для iPhone */}
-      <div className="h-4 bg-white"></div>
+      <div className="h-4 bg-[var(--bg-primary)]"></div>
     </nav>
   )
 }

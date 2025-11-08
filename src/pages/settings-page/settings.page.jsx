@@ -19,20 +19,12 @@ export const SettingsPage = () => {
     }
 
     switch (activeSection) {
-      case 'profile':
-        return <ThemeSection {...sectionProps} />
-      case 'notifications':
-        return <ThemeSection {...sectionProps} />
-      case 'security':
-        return <ThemeSection {...sectionProps} />
       case 'appearance':
-        return <ThemeSection {...sectionProps} />
-      case 'language':
         return <ThemeSection {...sectionProps} />
       default:
         return (
           <div className="space-y-6">
-            <p className="text-gray-500">Раздел в разработке</p>
+            <p className="text-[var(--text-secondary)]">Раздел в разработке</p>
           </div>
         )
     }
@@ -47,7 +39,7 @@ export const SettingsPage = () => {
       onSectionChange={setActiveSection}
     >
       <div className="flex-1">
-        <div className="bg-white rounded-lg border border-gray-200 p-6">
+        <div className="bg-[var(--bg-secondary)] rounded-lg border border-[var(--border-primary)] p-6">
           {renderSection()}
         </div>
       </div>

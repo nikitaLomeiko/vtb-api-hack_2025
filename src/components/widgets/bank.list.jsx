@@ -13,24 +13,24 @@ export const BanksList = ({ onAddBank, onBankClick }) => {
 
   const totalAccounts = bank.bankList.reduce(
     (total, bankItem) => total + bankItem.accounts.length,
-    0,
+    0
   )
 
   return (
-    <div className="bg-white rounded-2xl p-4 md:p-6 shadow-sm border border-gray-100">
+    <div className="bg-[var(--bg-primary)]  p-4 md:p-6 shadow-sm border-t border-[var(--border-primary)]">
       {/* Заголовок и статистика */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-xl md:text-2xl font-bold text-gray-900">
+          <h2 className="text-xl md:text-2xl font-bold text-[var(--text-primary)]">
             Мои банки
           </h2>
-          <p className="text-gray-500 text-sm">
+          <p className="text-[var(--text-secondary)] text-sm">
             {bank.bankList.length} банков • {totalAccounts} счетов
           </p>
         </div>
         <button
           onClick={onAddBank}
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2"
+          className="bg-[var(--accent-primary)] text-white px-4 py-2 rounded-lg hover:bg-[var(--accent-hover)] transition-colors flex items-center space-x-2"
         >
           <PlusIcon className="w-4 h-4" />
           <span>Добавить</span>

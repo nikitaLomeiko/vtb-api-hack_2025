@@ -9,7 +9,7 @@ export const HomePage = () => {
       <BalanceSummaryCard />
       <DenominationList />
       <BanksList />
-      <SlotMachine />
+      {/* <SlotMachine /> */}
     </div>
   )
 }

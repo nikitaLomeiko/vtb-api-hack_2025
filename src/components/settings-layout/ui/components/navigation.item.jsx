@@ -7,8 +7,8 @@ export const NavigationItem = ({ item, isActive, onClick }) => {
         onClick={() => onClick(item.id)}
         className={`w-full flex items-center gap-3 px-4 py-3 text-left rounded-md transition-colors ${
           isActive
-            ? 'bg-indigo-50 text-indigo-700 border border-indigo-100'
-            : 'text-gray-700 hover:bg-gray-50'
+            ? 'bg-[var(--accent-primary)]/20 text-[var(--accent-primary)] border border-[var(--accent-primary)]/30'
+            : 'text-[var(--text-primary)] hover:bg-[var(--bg-tertiary)]'
         }`}
       >
         <Icon className="w-5 h-5" />
