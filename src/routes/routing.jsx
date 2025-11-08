@@ -15,7 +15,6 @@ export const Routing = () => {
       <Route path="/deposit" element={<Deposit />} />
       <Route path="/deposit/:id" element={<DepositDetails />} />
       <Route path="/deposit/create" element={<CreateDepositForm />} />
-      <Route path="/transaction" element={<TransactionForm />} />
       <Route path="/settings/" element={<SettingsPage />} />
     </Routes>
   )

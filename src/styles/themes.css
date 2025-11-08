@@ -12,7 +12,8 @@
   --accent-secondary: #6366f1;
   --accent-hover: #4338ca;
   --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 [data-theme='dark'] {
@@ -28,7 +29,8 @@
   --accent-secondary: #4866ff;
   --accent-hover: #6366f1;
   --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25), 0 1px 2px 0 rgba(0, 0, 0, 0.15);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.25), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.25),
+    0 4px 6px -2px rgba(0, 0, 0, 0.15);
 }
 
 [data-theme='nightowl'] {
@@ -44,7 +46,8 @@
   --accent-secondary: #065783;
   --accent-hover: #38bdf8;
   --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.35), 0 1px 2px 0 rgba(0, 0, 0, 0.25);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.35),
+    0 4px 6px -2px rgba(0, 0, 0, 0.25);
 }
 
 [data-theme='sunset'] {
@@ -60,7 +63,8 @@
   --accent-secondary: #fdba74;
   --accent-hover: #f97316;
   --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
+    0 4px 6px -2px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme='forest'] {
@@ -76,7 +80,8 @@
   --accent-secondary: #2cef74;
   --accent-hover: #22c55e;
   --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.35), 0 1px 2px 0 rgba(0, 0, 0, 0.25);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.35),
+    0 4px 6px -2px rgba(0, 0, 0, 0.25);
 }
 
 [data-theme='ocean'] {
@@ -92,7 +97,8 @@
   --accent-secondary: #67e8f9;
   --accent-hover: #06b6d4;
   --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
+    0 4px 6px -2px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme='lavender'] {
@@ -107,8 +113,10 @@
   --accent-primary: #a855f7;
   --accent-secondary: #c084fc;
   --accent-hover: #9333ea;
-  --shadow: 0 1px 3px 0 rgba(168, 85, 247, 0.15), 0 1px 2px 0 rgba(168, 85, 247, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(168, 85, 247, 0.15), 0 4px 6px -2px rgba(168, 85, 247, 0.1);
+  --shadow: 0 1px 3px 0 rgba(168, 85, 247, 0.15),
+    0 1px 2px 0 rgba(168, 85, 247, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(168, 85, 247, 0.15),
+    0 4px 6px -2px rgba(168, 85, 247, 0.1);
 }
 
 [data-theme='coffee'] {
@@ -124,7 +132,8 @@
   --accent-secondary: #f59e0b;
   --accent-hover: #b45309;
   --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.35), 0 1px 2px 0 rgba(0, 0, 0, 0.25);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -2px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.35),
+    0 4px 6px -2px rgba(0, 0, 0, 0.25);
 }
 
 [data-theme='midnight'] {
@@ -140,7 +149,8 @@
   --accent-secondary: #60a5fa;
   --accent-hover: #2563eb;
   --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4),
+    0 4px 6px -2px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme='rose'] {
@@ -155,17 +165,17 @@
   --accent-primary: #e11d48;
   --accent-secondary: #f43f5e;
   --accent-hover: #be123c;
-  --shadow: 0 1px 3px 0 rgba(225, 29, 72, 0.15), 0 1px 2px 0 rgba(225, 29, 72, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(225, 29, 72, 0.15), 0 4px 6px -2px rgba(225, 29, 72, 0.1);
+  --shadow: 0 1px 3px 0 rgba(225, 29, 72, 0.15),
+    0 1px 2px 0 rgba(225, 29, 72, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(225, 29, 72, 0.15),
+    0 4px 6px -2px rgba(225, 29, 72, 0.1);
 }
 
 /* Base styles using CSS variables */
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Utility classes using CSS variables */
