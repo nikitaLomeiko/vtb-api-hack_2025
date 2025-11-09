@@ -3,6 +3,7 @@ import { CogIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 import { ThemeSection } from './sections/theme.section'
 import { useSettings } from '@store/settings'
+import { PrivacySettings } from './sections/privacy.section'
 
 export const SettingsPage = () => {
   const [activeSection, setActiveSection] = useState('profile')
@@ -21,10 +22,12 @@ export const SettingsPage = () => {
     switch (activeSection) {
       case 'appearance':
         return <ThemeSection {...sectionProps} />
+      case 'privacy':
+        return <PrivacySettings />
       default:
         return (
           <div className="space-y-6">
-            <p className="text-[var(--text-secondary)]">Раздел в разработке</p>
+            <p className="text-(--text-secondary)">Раздел в разработке</p>
           </div>
         )
     }
@@ -39,7 +42,7 @@ export const SettingsPage = () => {
       onSectionChange={setActiveSection}
     >
       <div className="flex-1">
-        <div className="bg-[var(--bg-secondary)] rounded-lg border border-[var(--border-primary)] p-6">
+        <div className="bg-(--bg-secondary) rounded-lg border border-(--border-primary) p-6">
           {renderSection()}
         </div>
       </div>
