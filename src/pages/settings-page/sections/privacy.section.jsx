@@ -7,7 +7,7 @@ import {
   TrashIcon,
 } from '@heroicons/react/24/outline'
 
-export const PrivacySettings = () => {
+export const PrivacySection = () => {
   const [settings, setSettings] = useState({
     profileVisibility: 'contacts',
     showBalance: false,

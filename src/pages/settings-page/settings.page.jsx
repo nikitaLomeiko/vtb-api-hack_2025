@@ -3,7 +3,8 @@ import { CogIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 import { ThemeSection } from './sections/theme.section'
 import { useSettings } from '@store/settings'
-import { PrivacySettings } from './sections/privacy.section'
+import { PrivacySection } from './sections/privacy.section'
+import { SecuritySection } from './sections/security.section'
 
 export const SettingsPage = () => {
   const [activeSection, setActiveSection] = useState('profile')
@@ -23,7 +24,9 @@ export const SettingsPage = () => {
       case 'appearance':
         return <ThemeSection {...sectionProps} />
       case 'privacy':
-        return <PrivacySettings />
+        return <PrivacySection />
+      case 'security':
+        return <SecuritySection />
       default:
         return (
           <div className="space-y-6">
