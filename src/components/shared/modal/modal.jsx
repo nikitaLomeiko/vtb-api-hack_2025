@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-
 export const Modal = ({
   isOpen,
   onClose,
@@ -10,17 +8,6 @@ export const Modal = ({
 }) => {
   if (!isOpen) return null
 
-  useEffect(() => {
-    if (isOpen) {
-      const scrollY = window.scrollY
-
-      document.body.style.position = 'fixed'
-      document.body.style.top = `-${scrollY}px`
-      document.body.style.width = '100%'
-      document.body.style.overflow = 'hidden'
-    }
-  }, [isOpen])
-
   const sizeClasses = {
     sm: 'max-w-md',
     md: 'max-w-2xl',
@@ -30,19 +17,11 @@ export const Modal = ({
 
   const handleClosed = () => {
     onClose()
-    document.body.style.position = ''
-    document.body.style.top = ''
-    document.body.style.width = ''
-    document.body.style.overflow = ''
   }
 
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget && !isLogin) {
       onClose()
-      document.body.style.position = ''
-      document.body.style.top = ''
-      document.body.style.width = ''
-      document.body.style.overflow = ''
     }
   }
 

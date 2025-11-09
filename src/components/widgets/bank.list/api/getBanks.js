@@ -2,8 +2,6 @@ import { useQuery } from '@tanstack/react-query'
 import { ApiClient } from '@api/client'
 
 export const useUserBanks = (token) => {
-  console.log('token')
-  console.log(token)
   return useQuery({
     queryKey: ['user-banks'],
     queryFn: async () => {
