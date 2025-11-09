@@ -1,5 +1,5 @@
+import { ApiClient } from '@api/client'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { ApiClient } from '../api/ApiClient'
 
 /**
  * Хук для POST/PUT/DELETE запросов

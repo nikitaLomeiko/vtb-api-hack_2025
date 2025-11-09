@@ -1,5 +1,5 @@
+import { ApiClient } from '@api/client'
 import { useQuery } from '@tanstack/react-query'
-import { ApiClient } from '../api/ApiClient'
 
 /**
  * Хук для GET-запросов

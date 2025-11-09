@@ -41,8 +41,6 @@ export const AuthFlow = ({ onAuthSuccess }) => {
     const success = await createPin(pin)
     if (success) {
       updateUserData({ pin })
-      console.log('Авторизация завершена!', userData)
-      alert('Авторизация успешно завершена!')
       onAuthSuccess()
     }
   }
