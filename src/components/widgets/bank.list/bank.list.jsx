@@ -44,14 +44,11 @@ export const BanksList = ({ onBankClick }) => {
             </h2>
             <p className="text-(--text-secondary) text-sm">Загрузка...</p>
           </div>
-          <div className="w-32 h-10 bg-(--bg-secondary) rounded-lg animate-pulse"></div>
+          <div className="w-32 h-10 bg-(--bg-secondary) rounded-lg"></div>
         </div>
         <div className="space-y-3">
           {[1, 2, 3].map((i) => (
-            <div
-              key={i}
-              className="h-20 bg-(--bg-secondary) rounded-xl animate-pulse"
-            ></div>
+            <div key={i} className="h-20 bg-(--bg-secondary) rounded-xl"></div>
           ))}
         </div>
       </div>

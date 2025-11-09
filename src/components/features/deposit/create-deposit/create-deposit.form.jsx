@@ -80,7 +80,7 @@ export const CreateDepositForm = () => {
   }
 
   return (
-    <div className="min-h-screen relative bg-(--bg-primary) py-8 mb-[110px] md:mb-0">
+    <div className="min-h-screen relative bg-(--bg-primary) py-8">
       <div className="container mx-auto px-4 max-w-2xl">
         <div className="flex items-center mb-8">
           <div className="md:ml-8">

@@ -7,15 +7,7 @@ export const Layout = ({ children }) => {
     <div className="min-h-screen bg-white-50 flex flex-col">
       <Header />
 
-      <main
-        className={`
-        flex-1 pb-0
-        md:pb-0
-        mobile:pb-20
-      `}
-      >
-        {children}
-      </main>
+      <main className={`flex-1 pb-[110px] md:pb-0`}>{children}</main>
 
       <Footer />
     </div>
