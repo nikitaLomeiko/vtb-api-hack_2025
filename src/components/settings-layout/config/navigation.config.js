@@ -10,7 +10,7 @@ import {
 
 export const navigationItems = [
   { id: 'profile', label: 'Профиль', icon: UserIcon },
-  { id: 'notifications', label: 'Уведомления', icon: BellIcon },
+  { id: 'notification', label: 'Уведомления', icon: BellIcon },
   { id: 'security', label: 'Безопасность', icon: ShieldCheckIcon },
   { id: 'billing', label: 'Платежи', icon: CreditCardIcon },
   { id: 'privacy', label: 'Конфиденциальность', icon: EyeIcon },
