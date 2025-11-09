@@ -1,10 +1,12 @@
 import React, { useState, useMemo } from 'react'
 import { BuildingLibraryIcon } from '@heroicons/react/24/outline'
 import { useAddBank, useBanks } from './api'
+import { useAuthUser } from '@store/auth'
 
 export const AddBankForm = ({ onSuccess, onCancel }) => {
   const { data: banksResponse, isLoading, error } = useBanks()
   const addBankMutation = useAddBank()
+  const { user } = useAuthUser()
 
   const [formData, setFormData] = useState({
     bankId: '',
@@ -45,10 +47,12 @@ export const AddBankForm = ({ onSuccess, onCancel }) => {
 
       const bankName = bank.bank_name || bank.name || ''
       const bankDescription = bank.bank_description || bank.description || ''
+      const bankIdString = bank.bank_id?.toString() || ''
 
       return (
         bankName.toLowerCase().includes(formData.bankId.toLowerCase()) ||
-        bankDescription.toLowerCase().includes(formData.bankId.toLowerCase())
+        bankDescription.toLowerCase().includes(formData.bankId.toLowerCase()) ||
+        bankIdString.includes(formData.bankId)
       )
     })
   }, [formData.bankId, availableBanks])
@@ -56,7 +60,7 @@ export const AddBankForm = ({ onSuccess, onCancel }) => {
   const selectedBank = useMemo(() => {
     return availableBanks.find((bank) => {
       if (!bank || typeof bank !== 'object') return false
-      return bank.bank_id === formData.bankId
+      return bank.bank_id?.toString() === formData.bankId
     })
   }, [formData.bankId, availableBanks])
 
@@ -75,8 +79,9 @@ export const AddBankForm = ({ onSuccess, onCancel }) => {
 
     try {
       await addBankMutation.mutateAsync({
-        bank_id: selectedBank.bank_id,
-        client_id: formData.clientId,
+        bank_id: Number(selectedBank.bank_id),
+        client_id: user.username,
+        token: user.uncrypted_token,
       })
 
       onSuccess?.()
@@ -87,7 +92,7 @@ export const AddBankForm = ({ onSuccess, onCancel }) => {
 
   const handleBankSelect = (bank) => {
     if (bank && bank.bank_id) {
-      setFormData((prev) => ({ ...prev, bankId: bank.bank_id }))
+      setFormData((prev) => ({ ...prev, bankId: bank.bank_id.toString() }))
       setShowBankSuggestions(false)
     }
   }
@@ -96,33 +101,6 @@ export const AddBankForm = ({ onSuccess, onCancel }) => {
     setFormData((prev) => ({ ...prev, bankId: value }))
     setShowBankSuggestions(true)
   }
-
-  // if (isLoading) {
-  //   return (
-  //     <div className="p-6">
-  //       <div className="">
-  //         <div className="h-4 bg-(--bg-secondary) rounded w-1/3 mb-4"></div>
-  //         <div className="h-10 bg-(--bg-secondary) rounded mb-4"></div>
-  //         <div className="h-10 bg-(--bg-secondary) rounded mb-4"></div>
-  //         <div className="h-12 bg-(--bg-secondary) rounded"></div>
-  //       </div>
-  //     </div>
-  //   )
-  // }
-
-  // if (error) {
-  //   return (
-  //     <div className="p-6 text-center">
-  //       <p className="text-red-600 mb-4">Ошибка при загрузке банков</p>
-  //       <button
-  //         onClick={() => window.location.reload()}
-  //         className="text-(--accent-primary) hover:text-(--accent-hover) font-medium"
-  //       >
-  //         Попробовать снова
-  //       </button>
-  //     </div>
-  //   )
-  // }
 
   return (
     <div className="p-6">
@@ -142,7 +120,7 @@ export const AddBankForm = ({ onSuccess, onCancel }) => {
                 setTimeout(() => setShowBankSuggestions(false), 200)
               }
               className="w-full px-4 py-3 border border-(--border-primary) rounded-lg focus:ring-2 focus:ring-(--accent-primary) focus:border-(--accent-primary) bg-(--bg-primary) text-(--text-primary)"
-              placeholder="Введите название банка"
+              placeholder="Введите название банка или ID"
             />
 
             {showBankSuggestions && filteredBanks.length > 0 && (
@@ -170,6 +148,7 @@ export const AddBankForm = ({ onSuccess, onCancel }) => {
                           {bank.bank_name || bank.name || 'Неизвестный банк'}
                         </div>
                         <div className="text-sm text-(--text-secondary) truncate">
+                          ID: {bank.bank_id} •{' '}
                           {bank.bank_description || bank.description || ''}
                         </div>
                       </div>
@@ -195,6 +174,7 @@ export const AddBankForm = ({ onSuccess, onCancel }) => {
                     {selectedBank.bank_name || selectedBank.name}
                   </div>
                   <div className="text-sm text-(--text-secondary)">
+                    ID: {selectedBank.bank_id} •{' '}
                     {selectedBank.bank_description ||
                       selectedBank.description ||
                       ''}

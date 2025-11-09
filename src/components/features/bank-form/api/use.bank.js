@@ -10,6 +10,10 @@ export const useBanks = () => {
         method: 'GET',
       })
 
+      if (!result) {
+        throw new Error('No response from server')
+      }
+
       // Обрабатываем разные форматы ответа
       if (Array.isArray(result.data)) {
         return result.data
@@ -23,7 +27,6 @@ export const useBanks = () => {
         return result.data.banks
       }
 
-      // Если не смогли распарсить, возвращаем пустой массив
       console.warn('Неизвестный формат ответа от /banks:', result.data)
       return []
     },
@@ -39,10 +42,19 @@ export const useAddBank = () => {
         url: '/my/banks',
         method: 'POST',
         data: bankData,
+        headers: {
+          Authorization: `Bearer ${bankData.token}`,
+        },
       })
+
+      if (!result) {
+        throw new Error('No response from server')
+      }
+
       return result.data
     },
     onSuccess: () => {
+      // Инвалидируем кэш банков пользователя
       queryClient.invalidateQueries({ queryKey: ['user-banks'] })
     },
   })

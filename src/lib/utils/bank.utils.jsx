@@ -18,9 +18,15 @@ export const formatBalance = (balance) => {
   })
 }
 
-// Вычисляем общий баланс банка
+// Вычисляем общий баланс банка - теперь с проверкой на наличие accounts
 export const getBankTotalBalance = (bankItem) => {
-  return bankItem.accounts.reduce((sum, account) => sum + account.balance, 0)
+  if (!bankItem.accounts || !Array.isArray(bankItem.accounts)) {
+    return 0
+  }
+  return bankItem.accounts.reduce(
+    (sum, account) => sum + (account.balance || 0),
+    0
+  )
 }
 
 export const getBankStyle = (bankName) => {
@@ -101,4 +107,12 @@ export const declineYear = (count) => {
   )
     return 'года'
   return 'лет'
+}
+
+// Новая функция для получения количества счетов
+export const getAccountsCount = (bankItem) => {
+  if (!bankItem.accounts || !Array.isArray(bankItem.accounts)) {
+    return 0
+  }
+  return bankItem.accounts.length
 }

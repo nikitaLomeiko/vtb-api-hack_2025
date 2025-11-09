@@ -5,7 +5,7 @@ const token_key = 'token'
 
 export const useAuthUser = create((set, get) => ({
   user: {
-    tokenHash: '',
+    uncrypted_token: '',
     username: 'team074-5',
     error: '',
     isAuth: false,
@@ -22,7 +22,7 @@ export const useAuthUser = create((set, get) => ({
     set({
       user: {
         ...store,
-        tokenHash: token,
+        uncrypted_token: token,
         isAuth: true,
       },
     })
@@ -37,7 +37,7 @@ export const useAuthUser = create((set, get) => ({
       const decrypted = crypto.decryptToken(token)
 
       if (decrypted) {
-        result.tokenHash = decrypted
+        result.uncrypted_token = decrypted
         result.isAuth = true
       } else {
         result.error = 'Пин-код неверный'
