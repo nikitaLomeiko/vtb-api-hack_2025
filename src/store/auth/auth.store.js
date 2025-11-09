@@ -16,6 +16,7 @@ export const useAuthUser = create((set, get) => ({
     const crypto = new TokenCrypto(encryption_code)
     const encrypted = crypto.encryptToken(token)
 
+    console.log(encryption_code)
     localStorage.setItem(token_key, encrypted)
 
     set({

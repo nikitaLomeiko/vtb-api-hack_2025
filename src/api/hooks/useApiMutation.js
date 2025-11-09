@@ -28,7 +28,7 @@ export const useApiMutation = (config = {}) => {
         params,
         headers,
       })
-      return result.data
+      return result
     },
     ...defaultConfig,
     ...config,

@@ -6,6 +6,7 @@ export const useAuth = () => {
   const { setToken } = useAuthUser()
 
   const [localToken, setLocalToken] = useState('')
+  const [sessionId, setSessionId] = useState('')
   const [currentStage, setCurrentStage] = useState('email')
   const [userData, setUserData] = useState({
     email: '',
@@ -36,30 +37,35 @@ export const useAuth = () => {
     setUserData((prev) => ({ ...prev, ...data }))
   }
 
-  const simulateApiCall = (ms = 1000) => {
-    return new Promise((resolve) => setTimeout(resolve, ms))
-  }
-
   const sendCodeToEmail = async (email) => {
     setIsLoading(true)
 
-    const token = await authMutation.mutateAsync({
-      url: '/auth/login',
+    const { data } = await authMutation.mutateAsync({
+      url: '/auth/begin',
       method: 'POST',
-      data: { email: 'pochta' },
+      data: { email },
     })
 
-    setLocalToken(token)
+    setSessionId(data.session_id)
     setIsLoading(false)
-    return '123456'
   }
 
   const verifyCode = async (code) => {
     setIsLoading(true)
-    await simulateApiCall(1000)
-    const isValid = code === '123456'
+
+    const { data } = await authMutation.mutateAsync({
+      url: '/auth/complete',
+      method: 'POST',
+      data: { session_id: sessionId, code },
+    })
+
     setIsLoading(false)
-    return isValid
+
+    if (data) {
+      setLocalToken(data.token)
+      return true
+    }
+    return false
   }
 
   const createPin = (pin) => {

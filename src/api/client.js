@@ -42,6 +42,6 @@ export const ApiClient = async ({
       `Status: ${error.response?.status}`
     )
 
-    throw new Error(error.response?.data?.message || 'Network error occurred')
+    // throw new Error(error.response?.data?.message || 'Network error occurred')
   }
 }
