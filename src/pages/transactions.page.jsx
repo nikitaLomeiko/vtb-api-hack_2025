@@ -6,6 +6,7 @@ import {
 } from '@components/features/transaction-filter'
 import { useTransaction } from '@store/transaction'
 import { TransactionForm } from '@components/features/transactions'
+import { Pagination } from '@components/ui/paggination'
 
 export const TransactionsPage = () => {
   const { transaction } = useTransaction()
@@ -29,9 +30,10 @@ export const TransactionsPage = () => {
 
         {transaction.isFiltersExpanded && <ActiveFilters />}
 
-        <div className="bg-[var(--bg-primary)] rounded-2xl shadow-sm border border-[var(--border-primary)] overflow-hidden">
+        <div className="bg-[var(--bg-primary)] mb-10 rounded-2xl shadow-sm border border-[var(--border-primary)] overflow-hidden">
           <TransactionHistory />
         </div>
+        <Pagination currentPage={1} totalPages={10} onPageChange={() => null} />
 
         <div className="mt-8 text-center">
           <p className="text-sm text-[var(--text-tertiary)]">

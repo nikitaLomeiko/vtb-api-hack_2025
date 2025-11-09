@@ -1,3 +1,4 @@
+import { Pagination } from '@components/ui/paggination'
 import { useTransaction } from '@store/transaction'
 import React from 'react'
 
