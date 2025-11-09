@@ -1,6 +1,11 @@
+import { useApiMutation } from '@api/hooks'
+import { useAuthUser } from '@store/auth'
 import { useState } from 'react'
 
 export const useAuth = () => {
+  const { setToken } = useAuthUser()
+
+  const [localToken, setLocalToken] = useState('')
   const [currentStage, setCurrentStage] = useState('email')
   const [userData, setUserData] = useState({
     email: '',
@@ -8,6 +13,8 @@ export const useAuth = () => {
     pin: '',
   })
   const [isLoading, setIsLoading] = useState(false)
+
+  const authMutation = useApiMutation()
 
   const goToNextStage = () => {
     const stages = ['email', 'code', 'pin']
@@ -35,8 +42,14 @@ export const useAuth = () => {
 
   const sendCodeToEmail = async (email) => {
     setIsLoading(true)
-    await simulateApiCall(1500)
-    console.log(`Код отправлен на: ${email}`)
+
+    const token = await authMutation.mutateAsync({
+      url: '/auth/login',
+      method: 'POST',
+      data: { email: 'pochta' },
+    })
+
+    setLocalToken(token)
     setIsLoading(false)
     return '123456'
   }
@@ -44,18 +57,13 @@ export const useAuth = () => {
   const verifyCode = async (code) => {
     setIsLoading(true)
     await simulateApiCall(1000)
-    const isValid = code === '123456' // Для демонстрации
+    const isValid = code === '123456'
     setIsLoading(false)
     return isValid
   }
 
-  const createPin = async (pin) => {
-    setIsLoading(true)
-    await simulateApiCall(1000)
-    console.log(`Пин-код создан: ${pin}`)
-    localStorage.setItem('user_pin', pin)
-    // В реальном приложении здесь будет API call для сохранения пин-кода
-    setIsLoading(false)
+  const createPin = (pin) => {
+    setToken(localToken, pin)
     return true
   }
 

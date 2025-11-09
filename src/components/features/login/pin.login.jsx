@@ -1,10 +1,10 @@
-import { FloatingBallsProvider } from '@components/providers/floating.balls.provider'
 import React, { useState, useRef, useEffect } from 'react'
+import { FloatingBallsProvider } from '@components/providers/floating.balls.provider'
+import { useAuthUser } from '@store/auth'
 
 export const PinLogin = ({ onLoginSuccess }) => {
+  const { user, getToken, setError } = useAuthUser()
   const [pin, setPin] = useState('')
-  const [error, setError] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
   const inputsRef = useRef([])
 
   useEffect(() => {
@@ -45,25 +45,14 @@ export const PinLogin = ({ onLoginSuccess }) => {
   const handleSubmit = async (submittedPin = pin) => {
     if (submittedPin.length !== 4) return
 
-    setIsLoading(true)
-
     try {
-      await new Promise((resolve) => setTimeout(resolve, 500))
-
-      const savedPin = localStorage.getItem('user_pin') || '1234'
-      const isValid = submittedPin === savedPin
+      const isValid = getToken(submittedPin)
 
       if (isValid) {
         onLoginSuccess?.()
-      } else {
-        setError('Неверный пин-код')
-        setPin('')
-        inputsRef.current[0]?.focus()
       }
     } catch (error) {
-      setError('Ошибка при входе')
-    } finally {
-      setIsLoading(false)
+      setError('Ошибка при входе', error)
     }
   }
 
@@ -93,25 +82,28 @@ export const PinLogin = ({ onLoginSuccess }) => {
                   w-12 h-12 text-center text-lg border rounded-lg
                   focus:border-[var(--accent-primary)] focus:outline-none
                   bg-[var(--bg-primary)] text-[var(--text-primary)]
-                  ${error ? 'border-red-500' : 'border-[var(--border-primary)]'}
-                  ${isLoading ? 'opacity-50' : ''}
+                  ${
+                    user.error
+                      ? 'border-red-500'
+                      : 'border-[var(--border-primary)]'
+                  }
                 `}
-                  disabled={isLoading}
                 />
               ))}
             </div>
 
-            {error && (
-              <p className="text-red-500 text-sm text-center mt-3">{error}</p>
+            {user.error && (
+              <p className="text-red-500 text-sm text-center mt-3">
+                {user.error}
+              </p>
             )}
           </div>
 
           <button
             onClick={() => handleSubmit()}
-            disabled={pin.length !== 4 || isLoading}
             className="w-full bg-[var(--accent-primary)] text-white py-3 rounded-lg font-medium disabled:opacity-50 hover:bg-[var(--accent-hover)] transition-colors"
           >
-            {isLoading ? '...' : 'Войти'}
+            Войти
           </button>
         </div>
       </div>
