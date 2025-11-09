@@ -28,16 +28,21 @@ export const Modal = ({
     xl: 'max-w-6xl',
   }
 
+  const handleClosed = () => {
+    onClose()
+    document.body.style.position = ''
+    document.body.style.top = ''
+    document.body.style.width = ''
+    document.body.style.overflow = ''
+  }
+
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget && !isLogin) {
       onClose()
-
       document.body.style.position = ''
       document.body.style.top = ''
       document.body.style.width = ''
       document.body.style.overflow = ''
-
-      window.scrollTo(0, scrollY)
     }
   }
 
@@ -56,7 +61,7 @@ export const Modal = ({
             </h2>
             {!isLogin && (
               <button
-                onClick={onClose}
+                onClick={handleClosed}
                 className="text-(--text-tertiary) hover:text-(--text-primary) transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-(--accent-primary) rounded"
               >
                 <svg

@@ -97,32 +97,32 @@ export const AddBankForm = ({ onSuccess, onCancel }) => {
     setShowBankSuggestions(true)
   }
 
-  if (isLoading) {
-    return (
-      <div className="p-6">
-        <div className="animate-pulse">
-          <div className="h-4 bg-(--bg-secondary) rounded w-1/3 mb-4"></div>
-          <div className="h-10 bg-(--bg-secondary) rounded mb-4"></div>
-          <div className="h-10 bg-(--bg-secondary) rounded mb-4"></div>
-          <div className="h-12 bg-(--bg-secondary) rounded"></div>
-        </div>
-      </div>
-    )
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className="p-6">
+  //       <div className="">
+  //         <div className="h-4 bg-(--bg-secondary) rounded w-1/3 mb-4"></div>
+  //         <div className="h-10 bg-(--bg-secondary) rounded mb-4"></div>
+  //         <div className="h-10 bg-(--bg-secondary) rounded mb-4"></div>
+  //         <div className="h-12 bg-(--bg-secondary) rounded"></div>
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
-  if (error) {
-    return (
-      <div className="p-6 text-center">
-        <p className="text-red-600 mb-4">Ошибка при загрузке банков</p>
-        <button
-          onClick={() => window.location.reload()}
-          className="text-(--accent-primary) hover:text-(--accent-hover) font-medium"
-        >
-          Попробовать снова
-        </button>
-      </div>
-    )
-  }
+  // if (error) {
+  //   return (
+  //     <div className="p-6 text-center">
+  //       <p className="text-red-600 mb-4">Ошибка при загрузке банков</p>
+  //       <button
+  //         onClick={() => window.location.reload()}
+  //         className="text-(--accent-primary) hover:text-(--accent-hover) font-medium"
+  //       >
+  //         Попробовать снова
+  //       </button>
+  //     </div>
+  //   )
+  // }
 
   return (
     <div className="p-6">

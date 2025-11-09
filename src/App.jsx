@@ -11,18 +11,16 @@ import audio from './assets/audio/run.ogg'
 function App() {
   return (
     <>
-      <SoundProvider runAudio={audio}>
-        <ThemeInitialProvider>
-          <BankLoadingScreen />
-          <AuthProvider
-            onAuthSuccess={() => console.log('Успешная авторизация')}
-          >
-            <Layout>
-              <Routing />
-            </Layout>
-          </AuthProvider>
-        </ThemeInitialProvider>
-      </SoundProvider>
+      {/* <SoundProvider runAudio={audio}> */}
+      <ThemeInitialProvider>
+        <BankLoadingScreen />
+        <AuthProvider onAuthSuccess={() => console.log('Успешная авторизация')}>
+          <Layout>
+            <Routing />
+          </Layout>
+        </AuthProvider>
+      </ThemeInitialProvider>
+      {/* </SoundProvider> */}
     </>
   )
 }

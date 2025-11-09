@@ -104,7 +104,7 @@ export const BalanceSummaryCard = () => {
 
       <button
         onClick={() => setIsVisibleModal(true)}
-        className="w-full md:mt-40 mt-32 bg-linear-to-r from-(--accent-primary) to-(--accent-secondary) hover:from-(--accent-hover) hover:to-(--accent-secondary) text-white py-3 md:py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg hover:shadow-xl relative z-10"
+        className="w-full md:mt-60 mt-48 bg-linear-to-r from-(--accent-primary) to-(--accent-secondary) hover:from-(--accent-hover) hover:to-(--accent-secondary) text-white py-3 md:py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg hover:shadow-xl relative z-10"
       >
         <ArrowsRightLeftIcon className="w-5 h-5" />
         <span>Перевести</span>
