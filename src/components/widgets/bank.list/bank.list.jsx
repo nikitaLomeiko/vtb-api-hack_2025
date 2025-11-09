@@ -24,6 +24,7 @@ export const BanksList = ({ onBankClick }) => {
   const [isVisibleAddBankForm, setIsVisibleAddBankForm] = useState(false)
 
   useEffect(() => {
+    console.log(userBanks)
     if (userBanks && Array.isArray(userBanks)) {
       setBankList(userBanks)
     }

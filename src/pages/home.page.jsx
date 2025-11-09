@@ -8,7 +8,7 @@ export const HomePage = () => {
     <div>
       <BalanceSummaryCard />
       <DenominationList />
-      <BanksList />
+      <BanksList onBankClick={() => console.log('sdg')} />
       {/* <SlotMachine /> */}
     </div>
   )

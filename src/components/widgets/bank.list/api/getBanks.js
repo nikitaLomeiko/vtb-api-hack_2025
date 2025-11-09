@@ -2,8 +2,6 @@ import { useQuery } from '@tanstack/react-query'
 import { ApiClient } from '@api/client'
 
 export const useUserBanks = (token) => {
-  console.log('token')
-  console.log(token)
   return useQuery({
     queryKey: ['user-banks'],
     queryFn: async () => {
@@ -29,7 +27,41 @@ export const useUserBanks = (token) => {
       }
 
       if (result.data && Array.isArray(result.data.banks)) {
-        return result.data.banks
+        const banks = result.data.banks
+
+        // Используем Promise.all для ожидания всех запросов
+        const banksWithAccounts = await Promise.all(
+          banks.map(async (bank) => {
+            try {
+              const accountsResult = await ApiClient({
+                url: `/accounts?client_id=${bank.my_bank_client_id}`,
+                method: 'GET',
+                headers: {
+                  'x-bank-id': bank.bank_id,
+                  Authorization: `Bearer ${token}`,
+                },
+              })
+
+              let accounts = []
+              accounts = accountsResult.data.data.account
+
+              return {
+                ...bank,
+                accounts: accounts,
+              }
+            } catch (error) {
+              console.error(
+                `Error fetching accounts for bank ${bank.bank_id}:`,
+                error
+              )
+              return {
+                ...bank,
+                accounts: [],
+              }
+            }
+          })
+        )
+        return banksWithAccounts
       }
 
       console.warn('Неизвестный формат ответа от /my/banks:', result.data)
