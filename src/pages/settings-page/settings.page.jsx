@@ -6,6 +6,7 @@ import { useSettings } from '@store/settings'
 import { PrivacySection } from './sections/privacy.section'
 import { SecuritySection } from './sections/security.section'
 import { NotificationsSection } from './sections/notification.section'
+import { PaymentsSection } from './sections/payments.section'
 
 export const SettingsPage = () => {
   const [activeSection, setActiveSection] = useState('profile')
@@ -30,6 +31,9 @@ export const SettingsPage = () => {
         return <SecuritySection />
       case 'notification':
         return <NotificationsSection />
+      case 'payments':
+        return <PaymentsSection />
+
       default:
         return (
           <div className="space-y-6">
