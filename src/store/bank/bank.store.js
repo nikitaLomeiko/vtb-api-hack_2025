@@ -72,6 +72,14 @@ export const useBank = create((set, get) => ({
     ],
   },
 
+  // Для формы добавления банка
+  availableBanks: [],
+  setAvailableBanks: (banks) => set({ availableBanks: banks }),
+
+  // Для выбранного банка в форме
+  selectedBank: null,
+  setSelectedBank: (bank) => set({ selectedBank: bank }),
+
   // Функция добавления денег к total
   addMoney: (amount) => {
     const state = get()

@@ -4,6 +4,7 @@ import { baseURL, timeout } from './consts'
 export const baseApi = axios.create({
   baseURL,
   timeout,
+  withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
   },

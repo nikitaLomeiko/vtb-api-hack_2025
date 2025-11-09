@@ -1,5 +1,4 @@
-// src/api/ApiClient.js
-import { baseApi } from './client.js'
+import { baseApi } from './api-schemes'
 
 /**
  * Универсальный клиент для API запросов
