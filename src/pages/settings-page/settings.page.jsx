@@ -7,6 +7,7 @@ import { PrivacySection } from './sections/privacy.section'
 import { SecuritySection } from './sections/security.section'
 import { NotificationsSection } from './sections/notification.section'
 import { PaymentsSection } from './sections/payments.section'
+import { ProfileSection } from './sections/profile.section'
 
 export const SettingsPage = () => {
   const [activeSection, setActiveSection] = useState('profile')
@@ -23,16 +24,18 @@ export const SettingsPage = () => {
     }
 
     switch (activeSection) {
-      case 'appearance':
-        return <ThemeSection {...sectionProps} />
-      case 'privacy':
-        return <PrivacySection />
-      case 'security':
-        return <SecuritySection />
+      case 'profile':
+        return <ProfileSection />
       case 'notification':
         return <NotificationsSection />
+      case 'security':
+        return <SecuritySection />
       case 'payments':
         return <PaymentsSection />
+      case 'privacy':
+        return <PrivacySection />
+      case 'appearance':
+        return <ThemeSection {...sectionProps} />
 
       default:
         return (
