@@ -24,20 +24,21 @@ export const TransactionForm = ({ isComponent }) => {
   const [showToSuggestions, setShowToSuggestions] = useState(false)
 
   const allAccounts = useMemo(() => {
-    return bank.bankList.flatMap((bank) =>
-      bank.accounts.map((account) => ({
+    const banks = bank.banks || bank.bankList || []
+    return banks.flatMap((bankItem) =>
+      (bankItem.accounts || []).map((account) => ({
         ...account,
-        bankName: bank.name,
+        bankName: bankItem.bank_name || bankItem.name,
       }))
     )
-  }, [bank.bankList])
+  }, [bank.banks, bank.bankList])
 
   const filteredFromAccounts = useMemo(() => {
     if (!formData.fromAccount) return []
     return allAccounts.filter(
       (account) =>
-        account.id.includes(formData.fromAccount) ||
-        account.name.toLowerCase().includes(formData.fromAccount.toLowerCase())
+        account.id?.includes(formData.fromAccount) ||
+        account.name?.toLowerCase().includes(formData.fromAccount.toLowerCase())
     )
   }, [formData.fromAccount, allAccounts])
 
@@ -45,8 +46,8 @@ export const TransactionForm = ({ isComponent }) => {
     if (!formData.toAccount) return []
     return contacts.filter(
       (contact) =>
-        contact.account.includes(formData.toAccount) ||
-        contact.name.toLowerCase().includes(formData.toAccount.toLowerCase())
+        contact.account?.includes(formData.toAccount) ||
+        contact.name?.toLowerCase().includes(formData.toAccount.toLowerCase())
     )
   }, [formData.toAccount, contacts])
 
@@ -196,15 +197,18 @@ export const TransactionForm = ({ isComponent }) => {
                         <div className="flex items-center justify-between">
                           <div>
                             <div className="font-medium text-(--text-primary)">
-                              {account.name}
+                              {account.name || 'Без названия'}
                             </div>
                             <div className="text-sm text-(--text-secondary)">
-                              {account.id} • {account.bankName}
+                              {account.id
+                                ? `•••• ${account.id.slice(-4)}`
+                                : 'Новый счет'}{' '}
+                              • {account.bankName}
                             </div>
                           </div>
                           <div className="text-right">
                             <div className="font-semibold text-(--text-primary)">
-                              {formatBalance(account.balance)} ₽
+                              {formatBalance(account.balance || 0)} ₽
                             </div>
                             <div className="text-xs text-(--text-tertiary)">
                               доступно
@@ -222,7 +226,7 @@ export const TransactionForm = ({ isComponent }) => {
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-(--text-secondary)">Доступно:</span>
                     <span className="font-semibold text-(--text-primary)">
-                      {formatBalance(selectedFromAccount.balance)} ₽
+                      {formatBalance(selectedFromAccount.balance || 0)} ₽
                     </span>
                   </div>
                 </div>

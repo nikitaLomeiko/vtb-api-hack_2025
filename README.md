@@ -1,16 +1,139 @@
-# React + Vite
+# 🎵 Symphony Finance
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
 
-Currently, two official plugins are available:
+**Единая платформа для управления всеми вашими банковскими счетами**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+_Картинки без ВПН могут не загрузиться_
 
-## React Compiler
+[![React](https://img.shields.io/badge/React-19.1.1-61dafb?logo=react)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-7.1.7-646CFF?logo=vite)](https://vitejs.dev/)
+[![Go](https://img.shields.io/badge/Backend-Go-00ADD8?logo=go)](https://golang.org/)
+[![Zustand](https://img.shields.io/badge/State-Zustand-614A3D)](https://zustand-demo.pmnd.rs/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+_Объединяем ваши финансы в одной симфонии_
 
-## Expanding the ESLint configuration
+</div>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🎯 О проекте
+
+Symphony Finance — это современное веб-приложение, которое позволяет объединить все ваши банковские счета из разных банков в одном интерфейсе. Просматривайте балансы, управляйте счетами и совершайте операции без необходимости переключаться между разными банковскими приложениями.
+
+### ✨ Ключевые возможности
+
+- 🏦 **Поддержка российских банков** (ВТБ, Сбер, Т-Банк, Альфа и другие)
+- 📊 **Единый обзор всех счетов** с актуальными балансами
+- 🔐 **Безопасная синхронизация** через банковские API
+- 💳 **Управление картами и счетами** из разных банков
+- 🔄 **Переводы между счетами** (в разработке)
+- 👥 **Переводы другим пользователям** (в разработке)
+- 📋 **Платежи и квитанции** (в разработке)
+
+## 🛠 Технологический стек
+
+### Frontend
+
+- **React 19** - современный фреймворк
+- **Vite 7** - сборщик и dev-сервер
+- **Tailwind CSS 4** - утилитарный CSS фреймворк
+- **Zustand** - управление состоянием
+- **React Router DOM 7** - маршрутизация
+- **React Hook Form** - управление формами
+- **Heroicons React** - иконки
+
+### Backend
+
+- **Go** - высокопроизводительный бэкенд
+- **JWT** - аутентификация
+- **REST API** - архитектура взаимодействия
+
+### Безопасность
+
+- **JWT токены** с шифрованием
+- **Двухфакторная аутентификация** (в разработке)
+- **PIN-код** для быстрого доступа
+- **Подтверждение по email**
+
+## 🚀 Быстрый старт
+
+### Предварительные требования
+
+- Node.js 18+
+- Go 1.21+
+- Браузер с поддержкой современных веб-стандартов
+
+### Установка и запуск
+
+1. **Клонирование репозитория**
+
+```bash
+git clone <repository-url>
+cd symphony-finance
+```
+
+2. **Установка зависимостей**
+
+```bash
+npm install
+```
+
+3. **Запуск development сервера**
+
+```bash
+npm run dev
+```
+
+4. **Сборка для production**
+
+```bash
+npm run build
+```
+
+### Скрипты разработки
+
+```bash
+npm run dev      # Запуск dev сервера
+npm run build    # Сборка проекта
+npm run lint     # Проверка кода
+npm run preview  # Превью сборки
+```
+
+## 🔐 Система аутентификации
+
+### Многоуровневая безопасность
+
+1. Email верификация - код подтверждения на почту
+
+2. PIN-код - 4-значный код для быстрого доступа
+
+3. JWT токены - безопасные сессии
+
+4. Двухфакторная аутентификация (планируется)
+
+### Процесс входа
+
+```text
+Ввод email → Получение кода → Подтверждение → Установка PIN → Доступ к приложению
+```
+
+## 🎨 UI/UX Особенности
+
+- Адаптивный дизайн для всех устройств
+
+- Темная тема с кастомными CSS переменными
+
+- Интуитивная навигация между банками и счетами
+
+- Быстрый поиск и фильтрация
+
+- Визуальные индикаторы статусов операций
+
+## 📈 Планы развития
+
+- Система переводов между счетами
+- P2P переводы пользователям
+- Платежи и квитанции
+- Двухфакторная аутентификация
+- Уведомления о операциях
+- Аналитика расходов
+- Мобильное приложение
