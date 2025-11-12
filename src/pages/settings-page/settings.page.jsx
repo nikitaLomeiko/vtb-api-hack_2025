@@ -1,13 +1,13 @@
-import { SettingsLayout } from '@components/settings-layout'
-import { CogIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
-import { ThemeSection } from './sections/theme.section'
-import { useSettings } from '@store/settings'
-import { PrivacySection } from './sections/privacy.section'
-import { SecuritySection } from './sections/security.section'
-import { NotificationsSection } from './sections/notification.section'
-import { PaymentsSection } from './sections/payments.section'
+import { useSettings } from '@shared/store/settings'
 import { ProfileSection } from './sections/profile.section'
+import { NotificationsSection } from './sections/notification.section'
+import { SecuritySection } from './sections/security.section'
+import { PaymentsSection } from './sections/payments.section'
+import { PrivacySection } from './sections/privacy.section'
+import { ThemeSection } from './sections/theme.section'
+import { CogIcon } from '@heroicons/react/24/outline'
+import { SettingsLayout } from '@shared/layouts/settings-layout'
 
 export const SettingsPage = () => {
   const [activeSection, setActiveSection] = useState('profile')

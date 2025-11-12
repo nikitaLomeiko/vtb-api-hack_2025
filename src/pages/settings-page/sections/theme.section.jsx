@@ -1,4 +1,4 @@
-import { themes, ThemeChanger } from '@components/features/theme-changer/'
+import { ThemeChanger, themes } from '@modules/theme-changer'
 
 export const ThemeSection = ({ settings, onSettingChange }) => {
   const handleThemeSelect = (themeId) => {
