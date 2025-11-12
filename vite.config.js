@@ -42,6 +42,8 @@ export default defineConfig({
       '@store': new URL('./src/store', import.meta.url).pathname,
       '@lib': new URL('./src/lib', import.meta.url).pathname,
       '@api': new URL('./src/api', import.meta.url).pathname,
+      '@modules': new URL('./src/modules', import.meta.url).pathname,
+      '@shared': new URL('./src/shared', import.meta.url).pathname,
     },
   },
 })

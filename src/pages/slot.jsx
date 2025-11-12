@@ -1,4 +1,4 @@
-import { useBank } from '@store/bank'
+import { useBank } from '@shared/store/bank'
 import React, { useState, useEffect } from 'react'
 
 const symbols = ['🍒', '🍋', '🍊', '🍇', '🍉', '🔔', '💎', '🍀']
@@ -88,12 +88,12 @@ const SlotMachine = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex flex-col items-center justify-center p-6 relative overflow-hidden">
+    <div className="min-h-screen bg-linear-to-br from-purple-900 via-blue-900 to-indigo-900 flex flex-col items-center justify-center p-6 relative overflow-hidden">
       {/* Анимированный фон */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-blue-500/10 to-pink-500/10 animate-pulse"></div>
+      <div className="absolute inset-0 bg-linear-to-br from-purple-500/10 via-blue-500/10 to-pink-500/10 animate-pulse"></div>
 
       <div className="relative z-10 bg-black/30 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white/20 shadow-2xl">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 text-center drop-shadow-lg bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 text-center drop-shadow-lg bg-linear-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
           🎰 Однорукий Бандит 🎰
         </h1>
 
@@ -142,7 +142,7 @@ const SlotMachine = () => {
           {reels.map((reel, index) => (
             <div key={index} className="relative">
               <div
-                className={`w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-gray-800 to-gray-900 border-4 border-yellow-500 rounded-2xl flex items-center justify-center text-5xl md:text-6xl shadow-2xl overflow-hidden relative ${
+                className={`w-24 h-24 md:w-32 md:h-32 bg-linear-to-br from-gray-800 to-gray-900 border-4 border-yellow-500 rounded-2xl flex items-center justify-center text-5xl md:text-6xl shadow-2xl overflow-hidden relative ${
                   spinning ? 'animate-spin-slow' : ''
                 }`}
               >
@@ -165,8 +165,8 @@ const SlotMachine = () => {
               spinning
                 ? 'bg-gray-600 cursor-not-allowed scale-95'
                 : bank.total < betAmount
-                  ? 'bg-red-700 cursor-not-allowed'
-                  : 'bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 hover:scale-105 active:scale-95'
+                ? 'bg-red-700 cursor-not-allowed'
+                : 'bg-linear-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 hover:scale-105 active:scale-95'
             }`}
             onClick={spin}
             disabled={spinning || bank.total < betAmount}
@@ -189,10 +189,10 @@ const SlotMachine = () => {
           <div
             className={`mb-4 px-6 py-4 rounded-2xl font-bold text-xl md:text-2xl text-center transition-all duration-300 border-2 ${
               result.includes('ДЖЕКПОТ')
-                ? 'bg-gradient-to-r from-yellow-400 to-orange-400 text-black border-yellow-300 animate-bounce'
+                ? 'bg-linear-to-r from-yellow-400 to-orange-400 text-black border-yellow-300 animate-bounce'
                 : result.includes('Почти')
-                  ? 'bg-gradient-to-r from-green-400 to-blue-400 text-white border-green-300'
-                  : 'bg-gradient-to-r from-red-500 to-pink-500 text-white border-red-300'
+                ? 'bg-linear-to-r from-green-400 to-blue-400 text-white border-green-300'
+                : 'bg-linear-to-r from-red-500 to-pink-500 text-white border-red-300'
             } shadow-2xl`}
           >
             {result}
