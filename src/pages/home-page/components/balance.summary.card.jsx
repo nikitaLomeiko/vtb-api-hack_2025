@@ -20,7 +20,7 @@ export const BalanceSummaryCard = () => {
   })
 
   return (
-    <div className="bg-(--bg-secondary) rounded-2xl p-16 md:p-24 my-4 shadow-sm border border-(--border-primary) relative overflow-hidden">
+    <div className="bg-(--bg-secondary) rounded-2xl p-16 md:p-24 m-5 shadow-sm border border-(--border-primary) relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute top-1/4 left-1/4 w-4 h-4 md:w-6 md:h-6 rounded-full bg-(--accent-primary)/30 animate-float-wide-1"
